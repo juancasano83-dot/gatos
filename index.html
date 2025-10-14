@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     
     <!-- Preload de imágenes críticas - MEJORADO -->
-    <link rel="preload" href="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=400&fit=crop&crop=center" as="image" fetchpriority="high">
+    <link rel="preload" href="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" as="image" fetchpriority="high">
     <link rel="preload" href="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" as="image" fetchpriority="high">
     <!-- Nuevos preloads para imágenes críticas -->
     <link rel="preload" href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" as="image">
@@ -53,7 +53,9 @@
         }
         
         .cat-img {
-            height: 200px;
+            height: 400px; /* Aumentado de 200px a 400px */
+            width: 100%;
+            max-width: 800px;
             object-fit: cover;
             border-radius: 15px;
             border: 3px solid #333;
@@ -178,7 +180,7 @@
         
         /* Estilos para el botón de donación en la sección Hero */
         .hero-donation-btn {
-            margin-top: 20px;
+            margin-top: 30px;
         }
         
         /* Estilos para el modal de donaciones mejorado */
@@ -452,6 +454,11 @@
         .lqip.loaded {
             filter: blur(0);
         }
+
+        /* Estilos para la sección Hero mejorada */
+        .hero-section {
+            padding: 80px 0;
+        }
     </style>
 </head>
 <body>
@@ -491,11 +498,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="py-5 text-center bg-light">
+    <section id="inicio" class="hero-section text-center bg-light">
         <div class="container">
             <h1 class="display-4 mb-4">El Mundo de los Gatos</h1>
-            <p class="lead">Descubre la fascinante vida de estos increíbles animales</p>
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=400&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" fetchpriority="high">
+            <p class="lead fs-4">Descubre la fascinante vida de estos increíbles animales</p>
+            <!-- Imagen principal más grande -->
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" fetchpriority="high">
             <!-- Botón de donación añadido -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                 Haz tu donación
@@ -506,6 +514,7 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
+    <!-- Resto del código se mantiene igual... -->
     <!-- Características Section -->
     <section id="caracteristicas" class="py-5">
         <div class="container">
