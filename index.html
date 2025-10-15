@@ -6,30 +6,30 @@
     <title>Gatos - Tema Sketchy</title>
     <!-- Meta descripción para SEO -->
     <meta name="description" content="Descubre el fascinante mundo de los gatos en nuestra página web. Información sobre características, galería de imágenes, preguntas frecuentes y cómo ayudar mediante donaciones. Todo sobre el cuidado y bienestar felino.">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTM0A1t6AAAAGklEQVRIx2NgGAWjYBSMglEwCkbBKBgFowAA5wABqM9wCAAAAABJRU5ErkJggg==">
     
     <!-- Preconexión para mejorar rendimiento -->
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
     <!-- Preload de imágenes críticas - MEJORADO -->
     <link rel="preload" href="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" as="image" fetchpriority="high">
     <link rel="preload" href="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" as="image" fetchpriority="high">
-    <link rel="preload" href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" as="image">
-    <link rel="preload" href="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" as="image">
-    <link rel="preload" href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" as="image">
     
     <!-- CSS crítico inline para mejorar FCP -->
     <style>
         /* CSS crítico para renderizado inicial */
         :root {
-            --bs-font-sans-serif: 'Neucha', -apple-system, system-ui, sans-serif;
+            --bs-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --bs-body-font-weight: 700;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cabin Sketch', cursive;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 700;
         }
         
         body {
@@ -48,21 +48,6 @@
             background-color: #007bff;
         }
         
-        /* Optimización de fuentes con font-display swap */
-        @font-face {
-            font-family: 'Cabin Sketch';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Neucha';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-        }
-        
         /* Placeholders para imágenes */
         .img-placeholder {
             background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
@@ -71,20 +56,98 @@
                         linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            min-height: 200px;
+        }
+        
+        /* Estilos de respaldo para fuentes mientras cargan */
+        .font-loading {
+            visibility: visible;
+        }
+        
+        /* Estilos mínimos para funcionalidad básica */
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.375rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .container {
+            width: 100%;
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(-1 * var(--bs-gutter-y));
+            margin-right: calc(-0.5 * var(--bs-gutter-x));
+            margin-left: calc(-0.5 * var(--bs-gutter-x));
+        }
+        
+        .row > * {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-top: var(--bs-gutter-y);
         }
     </style>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <!-- Bootstrap Sketchy Theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" crossorigin="anonymous">
-    <!-- Bootstrap Icons con font-display optimizado -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous">
-    <!-- Google Fonts con font-display optimizado -->
-    <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <!-- CSS No Crítico (cargado asíncronamente) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
-    <!-- CSS no crítico -->
-    <style>
+    <!-- Google Fonts optimizadas con font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- CSS personalizado cargado asíncronamente -->
+    <style id="deferred-styles">
         .cat-img {
             height: 400px;
             width: 100%;
@@ -477,9 +540,27 @@
             will-change: transform;
             backface-visibility: hidden;
         }
+        
+        /* Estilos para cuando las fuentes cargan */
+        .fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3, 
+        .fonts-loaded h4, .fonts-loaded h5, .fonts-loaded h6 {
+            font-family: 'Cabin Sketch', cursive;
+        }
+        
+        .fonts-loaded body {
+            font-family: 'Neucha', -apple-system, system-ui, sans-serif;
+        }
     </style>
+    
+    <!-- Fallback para navegadores sin JavaScript -->
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
 </head>
-<body>
+<body class="font-loading">
     <!-- Navbar fija -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -899,8 +980,27 @@
     
     <!-- JavaScript optimizado para evitar forced reflows -->
     <script>
-        // Esperar a que el DOM esté completamente cargado
+        // Cargar estilos diferidos cuando la página esté lista
         document.addEventListener('DOMContentLoaded', function() {
+            // Cargar estilos diferidos
+            var loadDeferredStyles = function() {
+                var addStylesNode = document.getElementById("deferred-styles");
+                var replacement = document.createElement("div");
+                replacement.innerHTML = addStylesNode.textContent;
+                document.body.appendChild(replacement);
+                addStylesNode.parentElement.removeChild(addStylesNode);
+            };
+            var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+                webkitRequestAnimationFrame || msRequestAnimationFrame;
+            if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+            else window.addEventListener('load', loadDeferredStyles);
+            
+            // Detectar cuando las fuentes están cargadas
+            document.fonts.ready.then(function () {
+                document.body.classList.remove('font-loading');
+                document.body.classList.add('fonts-loaded');
+            });
+            
             // Variables para agrupar operaciones DOM
             let domUpdates = [];
             let isProcessing = false;
