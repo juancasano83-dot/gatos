@@ -16,7 +16,7 @@
       "@type": "Article",
       "headline": "Todo sobre Gatos - Características, Cuidados y Curiosidades",
       "description": "Información completa sobre el mundo de los gatos, sus características, comportamiento, alimentación y cuidados necesarios.",
-      "image": "images/main-cat.jpg",
+      "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center",
       "author": {
         "@type": "Organization",
         "name": "Mundo Felino"
@@ -26,10 +26,10 @@
         "name": "Mundo Felino",
         "logo": {
           "@type": "ImageObject",
-          "url": "images/logo-cat.jpg"
+          "url": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center"
         }
       },
-      "datePublished": "2025-01-15",
+      "datePublished": "2023-01-01",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.ejemplo.com/gatos"
@@ -38,11 +38,9 @@
     </script>
     
     <!-- Preconexión para mejorar rendimiento -->
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    
-    <!-- Preload de la imagen LCP crítica -->
-    <link rel="preload" href="images/main-cat.jpg" as="image" fetchpriority="high">
     
     <!-- CSS crítico inline para mejorar FCP y evitar layout shifts -->
     <style>
@@ -155,16 +153,6 @@
         .fonts-loaded body {
             font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
         }
-
-        /* Estilos críticos para botones y navegación */
-        .btn {
-            min-height: 38px;
-        }
-
-        .navbar-brand {
-            font-family: 'Cabin Sketch Fallback', -apple-system, sans-serif;
-            font-weight: 700;
-        }
     </style>
     
     <!-- Preload de fuentes críticas con font-display: swap -->
@@ -255,7 +243,6 @@
             display: flex;
             justify-content: center;
             margin-top: 15px;
-            gap: 10px;
         }
         
         .gallery-indicator {
@@ -263,6 +250,7 @@
             height: 12px;
             border-radius: 50%;
             background-color: #ccc;
+            margin: 0 5px;
             cursor: pointer;
         }
         
@@ -272,7 +260,7 @@
         
         /* Estilos para el acordeón */
         .accordion-button {
-            font-family: 'Cabin Sketch Fallback', -apple-system, sans-serif;
+            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
             font-weight: 700;
             cursor: pointer;
         }
@@ -283,7 +271,7 @@
         }
         
         .accordion-body {
-            font-family: 'Neucha Fallback', -apple-system, sans-serif;
+            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
         }
         
         /* Estilos para el botón de donación en la galería */
@@ -433,6 +421,27 @@
             display: block;
         }
         
+        .was-validated .form-check-input:invalid ~ .form-check-label,
+        .form-check-input.is-invalid ~ .form-check-label {
+            color: #dc3545;
+        }
+        
+        .was-validated .form-check-input:invalid,
+        .form-check-input.is-invalid {
+            border-color: #dc3545;
+        }
+        
+        .was-validated .form-check-input:invalid:checked,
+        .form-check-input.is-invalid:checked {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        .form-text {
+            font-size: 0.875em;
+            color: #6c757d;
+        }
+        
         /* Estilos para el footer */
         .footer-section {
             padding: 40px 0 20px;
@@ -441,7 +450,7 @@
         }
         
         .footer-section h5 {
-            font-family: 'Cabin Sketch Fallback', -apple-system, sans-serif;
+            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
             margin-bottom: 20px;
             color: #f8f9fa;
             border-bottom: 2px dashed #ecf0f1;
@@ -565,10 +574,9 @@
             margin-right: 15px;
         }
         
-        /* Estilos para mejoras visuales de SEO - CORREGIDO: Mejor contraste */
+        /* Estilos para mejoras visuales de SEO */
         .keyword-highlight {
-            background-color: #ffd54f;
-            color: #000;
+            background-color: #fff3cd;
             padding: 2px 5px;
             border-radius: 3px;
             font-weight: bold;
@@ -590,40 +598,17 @@
         .btn {
             min-height: 38px;
         }
-
-        /* Estilos para fuentes cuando cargan */
-        .fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3, 
-        .fonts-loaded h4, .fonts-loaded h5, .fonts-loaded h6 {
-            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
-        }
-        
-        .fonts-loaded body {
-            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
-        }
-
-        .fonts-loaded .navbar-brand {
-            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
-        }
-
-        .fonts-loaded .accordion-button {
-            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
-        }
-
-        .fonts-loaded .accordion-body {
-            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
-        }
     </style>
 </head>
 <body>
     <!-- Navbar fija -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#" style="font-family: 'Cabin Sketch Fallback', -apple-system, sans-serif;">
-                <img src="images/logo-cat.jpg" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager">
+            <a class="navbar-brand" href="#" style="font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;">
+                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager">
                 Mundo Felino
             </a>
-            <!-- CORREGIDO: Botón con nombre accesible -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Alternar navegación" aria-expanded="false" aria-controls="navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -659,13 +644,13 @@
         <div class="container">
             <h1 class="display-4 mb-4 reserved-space">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
             <p class="lead fs-4 reserved-space">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
-            <!-- Imagen principal con dimensiones explícitas - CORREGIDO: fetchpriority=high -->
+            <!-- Imagen principal con dimensiones explícitas -->
             <div class="reserved-space" style="height: 400px; max-width: 800px; margin: 0 auto;">
-                <img src="images/main-cat.jpg" class="img-fluid rounded cat-img mt-4 lazy-img" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager" fetchpriority="high">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager">
             </div>
             <!-- Botón de donación añadido -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
-                <i class="bi bi-heart-fill me-2"></i>Haz tu donación
+                Haz tu donación
             </button>
         </div>
     </section>
@@ -682,7 +667,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
                         <div class="reserved-space" style="height: 180px;">
-                            <img src="images/gray-cat.jpg" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" width="300" height="200" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Anatomía del <span class="keyword-highlight">Gato</span></h5>
@@ -694,7 +679,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
                         <div class="reserved-space" style="height: 180px;">
-                            <img src="images/eyes-cat.jpg" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" width="300" height="200" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Sentidos del <span class="keyword-highlight">Gato</span></h5>
@@ -706,7 +691,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
                         <div class="reserved-space" style="height: 180px;">
-                            <img src="images/hunting-cat.jpg" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" width="300" height="200" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Comportamiento del <span class="keyword-highlight">Gato</span></h5>
@@ -718,7 +703,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
                         <div class="reserved-space" style="height: 180px;">
-                            <img src="images/eating-cat.jpg" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" width="300" height="200" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Alimentación del <span class="keyword-highlight">Gato</span></h5>
@@ -775,49 +760,39 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Galería Section ACTUALIZADA con todas tus imágenes -->
-    <section id="galeria" class="py-5">
+    <!-- Galería Section -->
+    <section id="galeria" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5">Galería de <span class="keyword-highlight">Gatos</span></h2>
             <div class="gallery-container">
-                <!-- Imagen 1 -->
+                <!-- Primera imagen de la galería igual a la primera imagen de las tarjetas -->
                 <div class="gallery-slide active">
                     <div class="reserved-space" style="height: 500px;">
-                        <img src="images/main-cat.jpg" class="img-fluid gallery-img lazy-img" alt="Gato principal - Gato blanco y negro mirando a la cámara" loading="eager" width="800" height="600">
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="eager" width="800" height="600">
                     </div>
                     <!-- Botón de donación añadido -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
-                        <i class="bi bi-heart-fill me-2"></i>Donar por este gato
+                        Donar por este gato
                     </button>
                 </div>
-                <!-- Imagen 2 -->
                 <div class="gallery-slide">
                     <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gray-cat.jpg" class="img-fluid gallery-img lazy-img" alt="Gato gris - Gato gris estirándose mostrando flexibilidad" loading="lazy" width="800" height="600">
+                        <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
                     </div>
                 </div>
-                <!-- Imagen 3 -->
                 <div class="gallery-slide">
                     <div class="reserved-space" style="height: 500px;">
-                        <img src="images/eyes-cat.jpg" class="img-fluid gallery-img lazy-img" alt="Ojos de gato - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
+                        <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
                     </div>
                 </div>
-                <!-- Imagen 4 -->
                 <div class="gallery-slide">
                     <div class="reserved-space" style="height: 500px;">
-                        <img src="images/hunting-cat.jpg" class="img-fluid gallery-img lazy-img" alt="Gato cazando - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
+                        <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
                     </div>
                 </div>
-                <!-- Imagen 5 -->
                 <div class="gallery-slide">
                     <div class="reserved-space" style="height: 500px;">
-                        <img src="images/eating-cat.jpg" class="img-fluid gallery-img lazy-img" alt="Gato comiendo - Gato comiendo de un plato" loading="lazy" width="800" height="600">
-                    </div>
-                </div>
-                <!-- Imagen 6 -->
-                <div class="gallery-slide">
-                    <div class="reserved-space" style="height: 500px;">
-                        <img src="images/logo-cat.jpg" class="img-fluid gallery-img lazy-img" alt="Gato logo - Gato naranja utilizado como logo" loading="lazy" width="800" height="600">
+                        <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 
@@ -830,7 +805,6 @@
                     <div class="gallery-indicator" data-slide="2"></div>
                     <div class="gallery-indicator" data-slide="3"></div>
                     <div class="gallery-indicator" data-slide="4"></div>
-                    <div class="gallery-indicator" data-slide="5"></div>
                 </div>
             </div>
         </div>
@@ -839,58 +813,177 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- FAQ Section optimizada para SEO -->
-    <section id="faq" class="py-5 bg-light">
+    <!-- Acordeón ampliado con todas las preguntas solicitadas -->
+    <section id="faq" class="py-5">
         <div class="container">
             <h2 class="text-center mb-5">Preguntas Frecuentes sobre <span class="keyword-highlight">Gatos</span></h2>
             <div class="accordion" id="faqAccordion">
+                <!-- Pregunta 1 -->
                 <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
-                            ¿Cuánto viven los gatos?
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            ¿Por qué los gatos ronronean?
                         </button>
-                    </h3>
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Los <strong>gatos</strong> domésticos suelen vivir entre <strong>12 y 15 años</strong>, aunque con buenos cuidados, alimentación adecuada y visitas regulares al veterinario, pueden llegar a los <strong>20 años o más</strong>. La esperanza de vida de un <strong>gato</strong> depende de factores como la raza, genética, cuidados y si es de interior o exterior.
+                            Los <strong>gatos</strong> ronronean por diversas razones, no solo cuando están contentos. También pueden ronronear cuando tienen miedo, están heridos o incluso durante el parto. Se cree que el ronroneo tiene propiedades curativas y puede ayudar a los <strong>gatos</strong> a recuperarse más rápido de lesiones.
                         </div>
                     </div>
                 </div>
+                <!-- Pregunta 2 -->
                 <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            ¿Qué comen los gatos?
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            ¿Cuánto tiempo viven los gatos?
                         </button>
-                    </h3>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Los <strong>gatos</strong> son <strong>carnívoros estrictos</strong>, lo que significa que necesitan una dieta basada principalmente en <strong>proteínas animales</strong>. Su alimentación debe incluir:
-                            <ul>
-                                <li>Alimento comercial de alta calidad para <strong>gatos</strong></li>
-                                <li>Proteínas como pollo, pescado o carne</li>
-                                <li>Agua fresca y limpia siempre disponible</li>
-                                <li>Evitar alimentos tóxicos como chocolate, cebolla o ajo</li>
-                            </ul>
+                            La esperanza de vida de un <strong>gato</strong> doméstico varía según varios factores, pero en promedio viven entre 12 y 15 años. Los <strong>gatos</strong> de interior suelen vivir más que los de exterior, y algunos <strong>gatos</strong> bien cuidados pueden llegar a los 20 años o más. La raza, alimentación y cuidados veterinarios influyen en cuánto viven los <strong>gatos</strong>.
                         </div>
                     </div>
                 </div>
+                <!-- Pregunta 3 -->
                 <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            ¿Cómo cuidar a un gato?
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            ¿Por qué los gatos amasan?
                         </button>
-                    </h3>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Los cuidados básicos para un <strong>gato</strong> incluyen:
-                            <ul>
-                                <li><strong>Alimentación</strong> balanceada y adecuada a su edad</li>
-                                <li><strong>Agua fresca</strong> siempre disponible</li>
-                                <li><strong>Arena sanitaria</strong> limpia diariamente</li>
-                                <li><strong>Visitas al veterinario</strong> regulares y vacunación</li>
-                                <li><strong>Ejercicio y juego</strong> para mantenerlo activo</li>
-                                <li><strong>Cepillado</strong> regular del pelaje</li>
-                            </ul>
+                            El amasado es un comportamiento que los gatitos realizan para estimular la producción de leche de su madre. Los <strong>gatos</strong> adultos continúan este comportamiento cuando se sienten cómodos y seguros, como cuando están a punto de dormir o cuando están recibiendo caricias. Es una señal de que están contentos y relajados.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            ¿Los gatos ven en color?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los <strong>gatos</strong> no ven en blanco y negro, pero su visión del color es limitada en comparación con los humanos. Pueden distinguir principalmente entre azules y verdes, pero tienen dificultad para percibir los rojos. Su visión está optimizada para la caza con poca luz, por lo que tienen más bastones (células para visión nocturna) que conos (células para visión del color).
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 5 - Cuánto duermen los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            ¿Cuánto duermen los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los <strong>gatos</strong> son animales que duermen mucho, generalmente entre 12 y 16 horas al día, aunque algunos pueden dormir hasta 20 horas. Los <strong>gatos</strong> ancianos y los gatitos suelen dormir aún más. Este patrón de sueño proviene de sus ancestros salvajes, que necesitaban conservar energía para la caza.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 6 - Qué hacer cuando a un gato le pica una abeja -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            ¿Qué hacer cuando a un gato le pica una abeja?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuando a un <strong>gato</strong> le pica una abeja, es importante actuar con calma. Primero, retira cuidadosamente el aguijón si está presente (raspándolo, no apretando). Aplica una compresa fría en la zona para reducir la hinchazón. Observa al <strong>gato</strong> atentamente por si muestra signos de reacción alérgica grave (dificultad para respirar, hinchazón facial excesiva), en cuyo caso debes acudir inmediatamente al veterinario.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 7 - Cuándo abren los ojos los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            ¿Cuándo abren los ojos los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los gatitos recién nacidos nacen con los ojos cerrados y generalmente los abren entre los 7 y 14 días de vida. Inicialmente, sus ojos son de color azul grisáceo, y el color definitivo se establece alrededor de las 12 semanas. Es importante no forzar la apertura de los ojos de los gatitos, ya que esto puede causar daños.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 8 - Por qué los gatos hacen muecas cuando huelen algo -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            ¿Por qué los gatos hacen muecas cuando huelen algo?
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuando los <strong>gatos</strong> huelen algo intenso o interesante, a veces realizan un gesto llamado "respuesta de Flehmen". Este consiste en levantar el labio superior y abrir ligeramente la boca, permitiendo que los aromas lleguen al órgano vomeronasal situado en el paladar. Este comportamiento ayuda a los <strong>gatos</strong> a analizar feromonas y otros olores de manera más detallada.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 9 - Cuándo empiezan a comer solos los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            ¿Cuándo empiezan a comer solos los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los gatitos generalmente comienzan a mostrar interés por la comida sólida alrededor de las 3-4 semanas de edad. A las 6-8 semanas, la mayoría de los gatitos ya pueden comer alimentos sólidos por sí mismos, aunque el destete completo suele ocurrir entre las 8 y 10 semanas. Es importante ofrecer alimento específico para gatitos, humedecido inicialmente para facilitar la transición.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 10 - Qué hacer cuando a un gato lo pica una abeja (variación) -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            ¿Qué hacer cuando a un gato lo pica una abeja?
+                        </button>
+                    </h2>
+                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Si un <strong>gato</strong> es picado por una abeja, mantén la calma y retira el aguijón si es visible usando una tarjeta o uña para rasparlo (no uses pinzas que puedan apretar más veneno). Aplica una pasta de bicarbonato de sodio y agua o una compresa fría para aliviar el dolor y la hinchazón. Si el <strong>gato</strong> muestra signos de reacción alérgica (dificultad respiratoria, debilidad extrema), acude al veterinario inmediatamente.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 11 - Cuántas vidas tienen los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEleven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                            ¿Cuántas vidas tienen los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            La creencia de que los <strong>gatos</strong> tienen 7 vidas (o 9 en algunas culturas) es solo un mito popular. Los <strong>gatos</strong> tienen una sola vida como cualquier otro ser vivo. Esta leyenda probablemente surgió debido a su notable agilidad y capacidad para sobrevivir a caídas que serían fatales para otros animales, gracias a su reflejo de enderezamiento.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 12 - Cuándo nacen los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwelve">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                            ¿Cuándo nacen los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los <strong>gatos</strong> pueden nacer en cualquier época del año, pero en climas templados suelen tener camadas en primavera y verano. El período de gestación de una gata es de aproximadamente 63-65 días. Las gatas pueden tener varias camadas al año, por lo que es importante la esterilización para controlar la población de <strong>gatos</strong> callejeros.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 13 - Cómo reaccionan los gatos cuando se asustan -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThirteen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                            ¿Cómo reaccionan los gatos cuando se asustan?
+                        </button>
+                    </h2>
+                    <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuando los <strong>gatos</strong> se asustan, pueden mostrar diversas reacciones: arquear la espalda, erizar el pelaje para parecer más grandes, silbar, gruñir o bufar. Algunos <strong>gatos</strong> pueden huir y esconderse, mientras que otros pueden quedarse paralizados. Es importante no forzar la interacción con un <strong>gato</strong> asustado y darle espacio para que se calme.
                         </div>
                     </div>
                 </div>
@@ -901,234 +994,488 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Sección de Donaciones -->
-    <section id="donaciones" class="py-5">
+    <!-- Donaciones Section -->
+    <section id="donaciones" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Apoya a los <span class="keyword-highlight">Gatos</span> que lo Necesitan</h2>
-            <div class="donation-box text-center">
-                <h3 class="mb-4">¡Tu ayuda marca la diferencia!</h3>
-                <p class="lead mb-4">Colabora con nuestro refugio para <strong>gatos</strong> abandonados. Tu donación nos ayuda a proporcionar:</p>
-                <div class="row">
-                    <div class="col-md-4">
-                        <i class="bi bi-heart-pulse feature-icon text-primary"></i>
-                        <h5>Atención veterinaria</h5>
-                        <p>Cuidados médicos para <strong>gatos</strong> enfermos o heridos</p>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="bi bi-house-heart feature-icon text-primary"></i>
-                        <h5>Refugio seguro</h5>
-                        <p>Alojamiento temporal para <strong>gatos</strong> sin hogar</p>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="bi bi-egg-fried feature-icon text-primary"></i>
-                        <h5>Alimentación</h5>
-                        <p>Comida de calidad para todos nuestros <strong>gatos</strong></p>
+            <h2 class="text-center mb-5">Ayuda a los <span class="keyword-highlight">Gatos</span></h2>
+            <div class="donation-form-container">
+                <div class="donation-box">
+                    <h4 class="text-center mb-4">Salva un <span class="keyword-highlight">Gato</span></h4>
+                    
+                    <!-- Formulario con validaciones completas y Formspree -->
+                    <form 
+                        id="donationForm" 
+                        class="needs-validation" 
+                        novalidate
+                        action="https://formspree.io/f/mjkapera"
+                        method="POST"
+                    >
+                        <div class="mb-3">
+                            <label class="form-label">Nombre *</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required minlength="2" maxlength="50">
+                            <div class="invalid-feedback">
+                                Por favor, introduce un nombre válido (entre 2 y 50 caracteres).
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Lugar de trabajo</label>
+                            <input type="text" class="form-control" id="work" name="work" placeholder="Tu trabajo" maxlength="100">
+                            <div class="form-text">Opcional</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Tu dirección" maxlength="100">
+                            <div class="form-text">Opcional</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Tu teléfono" pattern="[0-9]{9,15}">
+                            <div class="invalid-feedback">
+                                Por favor, introduce un número de teléfono válido (solo números, 9-15 dígitos).
+                            </div>
+                            <div class="form-text">Opcional</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Tu email" required>
+                            <div class="invalid-feedback">
+                                Por favor, introduce una dirección de correo electrónico válida.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Cantidad de Donación (€) *</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="donationAmount" id="amount10" value="10" required>
+                                    <label class="form-check-label" for="amount10">10 €</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="donationAmount" id="amount50" value="50">
+                                    <label class="form-check-label" for="amount50">50 €</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="donationAmount" id="amount100" value="100">
+                                    <label class="form-check-label" for="amount100">100 €</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="donationAmount" id="amount200" value="200">
+                                    <label class="form-check-label" for="amount200">200 €</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecciona una cantidad para donar.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">O especifica otra cantidad (0-500€)</label>
+                            <input type="number" class="form-control" id="customAmount" name="customAmount" min="0" max="500" placeholder="€">
+                            <div class="form-text">Si eliges una cantidad específica, se anulará la selección anterior.</div>
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">Acepto los términos y condiciones *</label>
+                            <div class="invalid-feedback">
+                                Debes aceptar los términos y condiciones para continuar.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
+                            <label class="form-check-label" for="newsletter">Deseo recibir información sobre futuras campañas</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100" id="donateButton">
+                            Donar
+                        </button>
+                    </form>
+                    
+                    <!-- Mensaje de éxito (se mostrará después del envío) -->
+                    <div id="formspreeSuccess" class="formspree-success">
+                        <h5>¡Gracias por tu donación!</h5>
+                        <p>Hemos recibido tu información correctamente y nos pondremos en contacto contigo pronto.</p>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#donationModal">
-                    <i class="bi bi-heart-fill me-2"></i>Hacer una donación
-                </button>
             </div>
         </div>
     </section>
 
-    <!-- Footer completo -->
+    <!-- Footer con 4 columnas -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5>Mundo Felino</h5>
-                    <p>Tu fuente confiable de información sobre <strong>gatos</strong>, sus cuidados, comportamiento y curiosidades. Comprometidos con el bienestar felino.</p>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                <!-- Columna 1: Información de contacto -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h5>Fundación el Mundo de los <span class="keyword-highlight">Gatos</span></h5>
+                    <div class="contact-info">
+                        <p><i class="bi bi-geo-alt"></i> Calle Felina, 123</p>
+                        <p><i class="bi bi-telephone"></i> +34 912 345 678</p>
+                        <p><i class="bi bi-envelope"></i> info@mundofelino.org</p>
                     </div>
+                    <p class="mt-3">Trabajamos para mejorar la vida de los <strong>gatos</strong> mediante rescate, educación y concienciación.</p>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Enlaces rápidos</h5>
+                
+                <!-- Columna 2: Enlaces de navegación -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h5>Enlaces Rápidos</h5>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#caracteristicas">Características</a></li>
                         <li><a href="#galeria">Galería</a></li>
                         <li><a href="#dibujar">Dibujar Gato</a></li>
                         <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#donaciones">Donaciones</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Información útil</h5>
+                
+                <!-- Columna 3: Proyectos -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h5>Nuestros Proyectos</h5>
                     <ul>
-                        <li><a href="#">Cuidados básicos del gato</a></li>
-                        <li><a href="#">Alimentación adecuada</a></li>
-                        <li><a href="#">Salud y veterinario</a></li>
-                        <li><a href="#">Comportamiento felino</a></li>
-                        <li><a href="#">Adopción responsable</a></li>
+                        <li><a href="#">Centro de Rescate Felino</a></li>
+                        <li><a href="#">Programa de Adopción Responsable</a></li>
+                        <li><a href="#">Investigación sobre Bienestar Felino</a></li>
+                        <li><a href="#">Educación Ambiental en Colegios</a></li>
+                        <li><a href="#">Programa C.E.S. (Captura, Esterilización, Suelta)</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Contacto</h5>
-                    <div class="contact-info">
-                        <p><i class="bi bi-envelope"></i> info@mundofelino.com</p>
-                        <p><i class="bi bi-telephone"></i> +34 912 345 678</p>
-                        <p><i class="bi bi-geo-alt"></i> Madrid, España</p>
+                
+                <!-- Columna 4: Redes Sociales -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <h5>Síguenos</h5>
+                    
+                    <div class="social-icons">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
                     </div>
+                    
+                    <p class="mt-3">Suscríbete a nuestro boletín para recibir novedades sobre <strong>gatos</strong>.</p>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Mundo Felino. Todos los derechos reservados. | <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a></p>
+                <p>&copy; 2023 Fundación el Mundo de los <span class="keyword-highlight">Gatos</span>. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal de Donaciones -->
+    <!-- Modal de Donación actualizado según la captura -->
     <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header donation-modal-header">
-                    <h5 class="modal-title donation-modal-title" id="donationModalLabel">Apoya a los Gatos</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <h5 class="modal-title donation-modal-title" id="donationModalLabel">Haz tu Donación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body donation-modal-body">
-                    <p class="donation-modal-main-text">Tu donación ayuda a gatos necesitados a encontrar un hogar y recibir cuidados veterinarios.</p>
+                <div class="modal-body donation-modal-content">
+                    <h4 class="donation-modal-main-text">¡Ayuda a salvar la vida de un <span class="keyword-highlight">gato</span>!</h4>
+                    <p class="mb-3">Tu contribución nos permite:</p>
+                    <ul class="mb-4">
+                        <li>Proveer alimento y cuidados veterinarios</li>
+                        <li>Mantener nuestro centro de rescate</li>
+                        <li>Promover programas de esterilización</li>
+                        <li>Educar sobre el cuidado responsable</li>
+                    </ul>
                     
                     <div class="donation-modal-divider"></div>
                     
-                    <h6 class="donation-modal-subtitle">Selecciona cantidad:</h6>
-                    <div class="row g-2 mb-3">
-                        <div class="col-4">
-                            <button type="button" class="btn btn-outline-primary w-100">10€</button>
-                        </div>
-                        <div class="col-4">
-                            <button type="button" class="btn btn-outline-primary w-100">25€</button>
-                        </div>
-                        <div class="col-4">
-                            <button type="button" class="btn btn-outline-primary w-100">50€</button>
-                        </div>
-                    </div>
+                    <h5 class="donation-modal-subtitle">Cada donación marca la diferencia</h5>
+                    <p class="mb-4">Con tu apoyo podemos continuar nuestra labor de protección felina.</p>
                     
-                    <div class="mb-3">
-                        <label for="customAmount" class="form-label">O introduce cantidad personalizada:</label>
-                        <input type="number" class="form-control" id="customAmount" placeholder="Ej: 75">
+                    <div class="modal-footer donation-modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="modalDonateButton">Donar Ahora</button>
                     </div>
-                </div>
-                <div class="modal-footer donation-modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Continuar con la donación</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Botón de scroll to top -->
-    <button class="scroll-to-section" id="scrollToTop" title="Volver arriba">
-        <i class="bi bi-arrow-up"></i>
-    </button>
+    <!-- Botón de scroll al acordeón -->
+    <button class="scroll-to-section" id="scrollToSection" title="Ir a preguntas frecuentes">?</button>
 
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS con defer para no bloquear renderizado -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
     
+    <!-- JavaScript optimizado para evitar forced reflows y layout shifts -->
     <script>
-        // Galería interactiva
+        // Esperar a que el DOM esté completamente cargado
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.gallery-slide');
-            const indicators = document.querySelectorAll('.gallery-indicator');
-            const prevBtn = document.querySelector('.gallery-nav.prev');
-            const nextBtn = document.querySelector('.gallery-nav.next');
-            let currentSlide = 0;
-            let slideInterval;
-
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
-                
-                slides[index].classList.add('active');
-                indicators[index].classList.add('active');
-                currentSlide = index;
-            }
-
-            function nextSlide() {
-                let next = currentSlide + 1;
-                if (next >= slides.length) next = 0;
-                showSlide(next);
-            }
-
-            function prevSlide() {
-                let prev = currentSlide - 1;
-                if (prev < 0) prev = slides.length - 1;
-                showSlide(prev);
-            }
-
-            function startSlideShow() {
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-
-            function stopSlideShow() {
-                clearInterval(slideInterval);
-            }
-
-            // Event listeners
-            nextBtn.addEventListener('click', () => {
-                stopSlideShow();
-                nextSlide();
-                startSlideShow();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                stopSlideShow();
-                prevSlide();
-                startSlideShow();
-            });
-
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    stopSlideShow();
-                    showSlide(index);
-                    startSlideShow();
-                });
-            });
-
-            // Lazy loading de imágenes
-            const lazyImages = document.querySelectorAll('.lazy-img');
+            // Variables para agrupar operaciones DOM
+            let domUpdates = [];
+            let isProcessing = false;
             
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            lazyImages.forEach(img => imageObserver.observe(img));
-
-            // Scroll to top button
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.style.display = 'block';
-                } else {
-                    scrollToTopBtn.style.display = 'none';
-                }
-            });
-
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
             // Detectar cuando las fuentes web están cargadas
-            document.fonts.ready.then(() => {
+            document.fonts.ready.then(function() {
                 document.body.classList.add('fonts-loaded');
             });
-
-            // Iniciar galería
-            startSlideShow();
+            
+            // Función optimizada para procesar actualizaciones DOM en lote
+            function processDomUpdates() {
+                if (isProcessing) return;
+                isProcessing = true;
+                
+                // Usar requestAnimationFrame para agrupar operaciones
+                requestAnimationFrame(() => {
+                    // Procesar todas las actualizaciones pendientes
+                    while (domUpdates.length) {
+                        const update = domUpdates.shift();
+                        if (typeof update === 'function') {
+                            update();
+                        }
+                    }
+                    isProcessing = false;
+                });
+            }
+            
+            // Galería interactiva optimizada
+            function initializeGallery() {
+                const slides = document.querySelectorAll('.gallery-slide');
+                const indicators = document.querySelectorAll('.gallery-indicator');
+                const prevBtn = document.querySelector('.gallery-nav.prev');
+                const nextBtn = document.querySelector('.gallery-nav.next');
+                let currentSlide = 0;
+                
+                function showSlide(index) {
+                    // Agrupar operaciones DOM
+                    domUpdates.push(() => {
+                        slides.forEach(slide => slide.classList.remove('active'));
+                        indicators.forEach(indicator => indicator.classList.remove('active'));
+                        
+                        slides[index].classList.add('active');
+                        indicators[index].classList.add('active');
+                        currentSlide = index;
+                    });
+                    processDomUpdates();
+                }
+                
+                // Navegación con flechas
+                prevBtn.addEventListener('click', function() {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1;
+                    showSlide(newIndex);
+                });
+                
+                nextBtn.addEventListener('click', function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                });
+                
+                // Navegación con indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', function() {
+                        showSlide(index);
+                    });
+                });
+                
+                // Cambio automático cada 5 segundos
+                setInterval(function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                }, 5000);
+            }
+            
+            // Validación del formulario optimizada
+            function initializeForm() {
+                const form = document.getElementById('donationForm');
+                const customAmount = document.getElementById('customAmount');
+                const radioButtons = document.querySelectorAll('input[name="donationAmount"]');
+                const formspreeSuccess = document.getElementById('formspreeSuccess');
+                
+                // Si se introduce una cantidad personalizada, desmarcar los radio buttons
+                customAmount.addEventListener('input', function() {
+                    if (this.value) {
+                        radioButtons.forEach(radio => {
+                            radio.checked = false;
+                            radio.required = false;
+                        });
+                    } else {
+                        radioButtons[0].required = true;
+                    }
+                });
+                
+                // Si se selecciona un radio button, limpiar la cantidad personalizada
+                radioButtons.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        if (this.checked) {
+                            customAmount.value = '';
+                        }
+                    });
+                });
+                
+                // Validación al enviar el formulario
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    // Verificar si se ha seleccionado al menos una opción de donación
+                    const hasRadioSelected = Array.from(radioButtons).some(radio => radio.checked);
+                    const hasCustomAmount = customAmount.value && customAmount.value > 0;
+                    
+                    if (!hasRadioSelected && !hasCustomAmount) {
+                        radioButtons[0].setCustomValidity('Debes seleccionar una cantidad o introducir una personalizada');
+                    } else {
+                        radioButtons[0].setCustomValidity('');
+                    }
+                    
+                    // Validación estándar de Bootstrap
+                    if (form.checkValidity()) {
+                        const formData = new FormData(form);
+                        
+                        fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                domUpdates.push(() => {
+                                    form.style.display = 'none';
+                                    formspreeSuccess.style.display = 'block';
+                                    form.reset();
+                                    form.classList.remove('was-validated');
+                                });
+                                processDomUpdates();
+                            } else {
+                                response.json().then(data => {
+                                    if (Object.hasOwn(data, 'errors')) {
+                                        alert(data["errors"].map(error => error["message"]).join(", "));
+                                    } else {
+                                        alert("Oops! Hubo un problema al enviar el formulario");
+                                    }
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            alert("Oops! Hubo un problema al enviar el formulario");
+                        });
+                    } else {
+                        form.classList.add('was-validated');
+                    }
+                });
+            }
+            
+            // Botón Donar en el modal optimizado
+            function initializeModal() {
+                const modalDonateButton = document.getElementById('modalDonateButton');
+                modalDonateButton.addEventListener('click', function() {
+                    const modalElement = document.getElementById('donationModal');
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    modal.hide();
+                    
+                    setTimeout(function() {
+                        const targetElement = document.getElementById('donaciones');
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight - 50;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                });
+            }
+            
+            // Scroll optimizado
+            function initializeScroll() {
+                const scrollToSection = document.getElementById('scrollToSection');
+                
+                window.addEventListener('scroll', function() {
+                    domUpdates.push(() => {
+                        if (window.scrollY > 500) {
+                            scrollToSection.style.display = 'block';
+                        } else {
+                            scrollToSection.style.display = 'none';
+                        }
+                    });
+                    processDomUpdates();
+                });
+                
+                scrollToSection.addEventListener('click', function() {
+                    const targetElement = document.getElementById('faq');
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight - 80;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Smooth scroll para los enlaces de navegación
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - navbarHeight - 80;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+            
+            // Lazy loading optimizado para imágenes
+            function initializeLazyLoading() {
+                const lazyImages = document.querySelectorAll('.lazy-img');
+                
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                domUpdates.push(() => {
+                                    img.classList.add('loaded');
+                                });
+                                processDomUpdates();
+                                imageObserver.unobserve(img);
+                            }
+                        });
+                    }, {
+                        rootMargin: '50px 0px',
+                        threshold: 0.1
+                    });
+                    
+                    lazyImages.forEach(img => imageObserver.observe(img));
+                } else {
+                    lazyImages.forEach(img => {
+                        img.classList.add('loaded');
+                    });
+                }
+            }
+            
+            // Inicializar todos los componentes
+            initializeGallery();
+            initializeForm();
+            initializeModal();
+            initializeScroll();
+            initializeLazyLoading();
         });
+    </script>
+
+    <!-- Google tag (gtag.js) con defer -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1JLES0QP7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K1JLES0QP7');
     </script>
 </body>
 </html>
