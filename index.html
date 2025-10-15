@@ -514,7 +514,6 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Resto del código se mantiene igual... -->
     <!-- Características Section -->
     <section id="caracteristicas" class="py-5">
         <div class="container">
@@ -726,7 +725,7 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label">Salva un Gato (€) *</label>
+                            <label class="form-label">Cantidad de Donación (€) *</label>
                             <div class="d-flex flex-wrap gap-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="donationAmount" id="amount10" value="10" required>
@@ -751,7 +750,7 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label">O específico será cantidad 0-500€</label>
+                            <label class="form-label">O especifica otra cantidad (0-500€)</label>
                             <input type="number" class="form-control" id="customAmount" name="customAmount" min="0" max="500" placeholder="€">
                             <div class="form-text">Si eliges una cantidad específica, se anulará la selección anterior.</div>
                         </div>
@@ -849,19 +848,27 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header donation-modal-header">
-                    <h5 class="modal-title donation-modal-title" id="donationModalLabel">Donaciones</h5>
+                    <h5 class="modal-title donation-modal-title" id="donationModalLabel">Haz tu Donación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body donation-modal-content">
-                    <h4 class="donation-modal-main-text">Ya puedes hacer tu donación</h4>
+                    <h4 class="donation-modal-main-text">¡Ayuda a salvar la vida de un gato!</h4>
+                    <p class="mb-3">Tu contribución nos permite:</p>
+                    <ul class="mb-4">
+                        <li>Proveer alimento y cuidados veterinarios</li>
+                        <li>Mantener nuestro centro de rescate</li>
+                        <li>Promover programas de esterilización</li>
+                        <li>Educar sobre el cuidado responsable</li>
+                    </ul>
                     
                     <div class="donation-modal-divider"></div>
                     
-                    <h5 class="donation-modal-subtitle">Observación mundial</h5>
+                    <h5 class="donation-modal-subtitle">Cada donación marca la diferencia</h5>
+                    <p class="mb-4">Con tu apoyo podemos continuar nuestra labor de protección felina.</p>
                     
                     <div class="modal-footer donation-modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="modalDonateButton">Donor</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="modalDonateButton">Donar Ahora</button>
                     </div>
                 </div>
             </div>
@@ -1001,7 +1008,7 @@
                 }
             }, false);
             
-            // Botón Donor en el modal - cierra el modal y hace scroll al formulario
+            // Botón Donar en el modal - cierra el modal y hace scroll al formulario
             const modalDonateButton = document.getElementById('modalDonateButton');
             modalDonateButton.addEventListener('click', function() {
                 // Cerrar el modal
@@ -1142,4 +1149,3 @@
     </script>
 </body>
 </html>
-
