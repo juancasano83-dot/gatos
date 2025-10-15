@@ -574,9 +574,10 @@
             margin-right: 15px;
         }
         
-        /* Estilos para mejoras visuales de SEO */
+        /* Estilos para mejoras visuales de SEO - CORREGIDO: Mejor contraste */
         .keyword-highlight {
-            background-color: #fff3cd;
+            background-color: #ffd54f; /* Color más oscuro para mejor contraste */
+            color: #000; /* Texto negro para máximo contraste */
             padding: 2px 5px;
             border-radius: 3px;
             font-weight: bold;
@@ -608,7 +609,8 @@
                 <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager">
                 Mundo Felino
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <!-- CORREGIDO: Botón con nombre accesible -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Alternar navegación" aria-expanded="false" aria-controls="navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
