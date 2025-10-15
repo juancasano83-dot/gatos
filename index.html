@@ -3,41 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gatos - Tema Sketchy</title>
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Descubre el fascinante mundo de los gatos en nuestra página web. Información sobre características, galería de imágenes, preguntas frecuentes y cómo ayudar mediante donaciones. Todo sobre el cuidado y bienestar felino.">
-    <link rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTM0A1t6AAAAGklEQVRIx2NgGAWjYBSMglEwCkbBKBgFowAA5wABqM9wCAAAAABJRU5ErkJggg==">
+    <title>Gatos - Todo sobre Gatos | Características, Cuidados y Curiosidades</title>
+    <!-- Meta descripción optimizada para SEO -->
+    <meta name="description" content="Descubre todo sobre los gatos: características, cuidados, comportamiento, alimentación y curiosidades. Aprende a dibujar un gato, conoce cuánto viven y sus sentidos especiales. Información completa sobre el mundo felino.">
+    <meta name="keywords" content="gato, gatos, cuidados gatos, comportamiento gatos, dibujar gato, cuanto viven los gatos, alimentación gatos, curiosidades gatos, mundo felino">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Schema.org markup para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Todo sobre Gatos - Características, Cuidados y Curiosidades",
+      "description": "Información completa sobre el mundo de los gatos, sus características, comportamiento, alimentación y cuidados necesarios.",
+      "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center",
+      "author": {
+        "@type": "Organization",
+        "name": "Mundo Felino"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mundo Felino",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center"
+        }
+      },
+      "datePublished": "2023-01-01",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.ejemplo.com/gatos"
+      }
+    }
+    </script>
     
     <!-- Preconexión para mejorar rendimiento -->
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
-    <!-- Preload de imágenes críticas - MEJORADO -->
-    <link rel="preload" href="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" as="image" fetchpriority="high">
-    <link rel="preload" href="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" as="image" fetchpriority="high">
-    
-    <!-- CSS crítico inline para mejorar FCP -->
+    <!-- CSS crítico inline para mejorar FCP y evitar layout shifts -->
     <style>
         /* CSS crítico para renderizado inicial */
         :root {
             --bs-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --bs-body-font-weight: 700;
+            --bs-body-font-weight: 400;
+        }
+        
+        /* Definición de fuentes locales de respaldo para evitar FOIT/FOUT */
+        @font-face {
+            font-family: 'Cabin Sketch Fallback';
+            src: local('Arial');
+            ascent-override: 95%;
+            descent-override: 22%;
+            line-gap-override: 0%;
+            size-adjust: 105%;
+        }
+        
+        @font-face {
+            font-family: 'Neucha Fallback';
+            src: local('Georgia');
+            ascent-override: 105%;
+            descent-override: 35%;
+            line-gap-override: 0%;
+            size-adjust: 98%;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Cabin Sketch Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-weight: 700;
         }
         
         body {
-            font-family: var(--bs-font-sans-serif);
+            font-family: 'Neucha Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-weight: var(--bs-body-font-weight);
             background-color: #f8f9fa;
             padding-top: 76px;
             margin: 0;
+            line-height: 1.6;
         }
         
         .navbar {
@@ -48,6 +91,35 @@
             background-color: #007bff;
         }
         
+        /* Estilos para reservar espacio y evitar layout shifts */
+        .hero-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cat-img, .feature-card-img, .gallery-img {
+            aspect-ratio: 4/3;
+            background-color: #f0f0f0;
+            display: block;
+        }
+        
+        .cat-img {
+            height: 400px;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .gallery-img {
+            height: 500px;
+            width: 100%;
+        }
+        
+        .feature-card-img {
+            height: 180px;
+            width: 100%;
+        }
+        
         /* Placeholders para imágenes */
         .img-placeholder {
             background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
@@ -56,118 +128,54 @@
                         linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-            min-height: 200px;
         }
         
-        /* Estilos de respaldo para fuentes mientras cargan */
-        .font-loading {
-            visibility: visible;
-        }
-        
-        /* Estilos mínimos para funcionalidad básica */
-        .btn {
-            display: inline-block;
-            font-weight: 400;
-            line-height: 1.5;
-            text-align: center;
-            text-decoration: none;
-            vertical-align: middle;
-            cursor: pointer;
-            user-select: none;
-            background-color: transparent;
-            border: 1px solid transparent;
-            padding: 0.375rem 0.75rem;
-            font-size: 1rem;
-            border-radius: 0.375rem;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-        
-        .btn-primary {
-            color: #fff;
-            background-color: #0d6efd;
-            border-color: #0d6efd;
-        }
-        
-        .container {
-            width: 100%;
-            padding-right: var(--bs-gutter-x, 0.75rem);
-            padding-left: var(--bs-gutter-x, 0.75rem);
-            margin-right: auto;
-            margin-left: auto;
-        }
-        
-        @media (min-width: 576px) {
-            .container {
-                max-width: 540px;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .container {
-                max-width: 720px;
-            }
-        }
-        
-        @media (min-width: 992px) {
-            .container {
-                max-width: 960px;
-            }
-        }
-        
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 1140px;
-            }
-        }
-        
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(-1 * var(--bs-gutter-y));
-            margin-right: calc(-0.5 * var(--bs-gutter-x));
-            margin-left: calc(-0.5 * var(--bs-gutter-x));
-        }
-        
-        .row > * {
-            flex-shrink: 0;
-            width: 100%;
-            max-width: 100%;
-            padding-right: calc(var(--bs-gutter-x) * 0.5);
-            padding-left: calc(var(--bs-gutter-x) * 0.5);
-            margin-top: var(--bs-gutter-y);
-        }
-    </style>
-    
-    <!-- CSS No Crítico (cargado asíncronamente) -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <!-- Google Fonts optimizadas con font-display: swap -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <!-- CSS personalizado cargado asíncronamente -->
-    <style id="deferred-styles">
-        .cat-img {
-            height: 400px;
-            width: 100%;
-            max-width: 800px;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 3px solid #333;
-        }
-        
-        .feature-icon {
-            font-size: 2rem;
+        /* Estilos base para elementos que podrían causar layout shifts */
+        .display-4 {
+            font-size: calc(1.475rem + 2.7vw);
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 1rem;
         }
         
-        .gallery-img {
-            height: 500px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 3px solid #333;
+        @media (min-width: 1200px) {
+            .display-4 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        /* Clase para cuando las fuentes web estén cargadas */
+        .fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3, 
+        .fonts-loaded h4, .fonts-loaded h5, .fonts-loaded h6 {
+            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
+        }
+        
+        .fonts-loaded body {
+            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
+        }
+    </style>
+    
+    <!-- Preload de fuentes críticas con font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- CSS no crítico cargado de forma asíncrona -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" media="print" onload="this.media='all'">
+    
+    <!-- CSS adicional que se carga después del renderizado inicial -->
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+    </noscript>
+    
+    <!-- CSS no crítico -->
+    <style>
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
         
         .fact-card {
@@ -252,7 +260,7 @@
         
         /* Estilos para el acordeón */
         .accordion-button {
-            font-family: 'Cabin Sketch', cursive;
+            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
             font-weight: 700;
             cursor: pointer;
         }
@@ -263,7 +271,7 @@
         }
         
         .accordion-body {
-            font-family: 'Neucha', -apple-system, system-ui, sans-serif;
+            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
         }
         
         /* Estilos para el botón de donación en la galería */
@@ -302,7 +310,6 @@
         }
         
         .feature-card-img {
-            height: 180px;
             object-fit: cover;
             border-bottom: 3px solid #333;
         }
@@ -443,7 +450,7 @@
         }
         
         .footer-section h5 {
-            font-family: 'Cabin Sketch', cursive;
+            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
             margin-bottom: 20px;
             color: #f8f9fa;
             border-bottom: 2px dashed #ecf0f1;
@@ -541,31 +548,64 @@
             backface-visibility: hidden;
         }
         
-        /* Estilos para cuando las fuentes cargan */
-        .fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3, 
-        .fonts-loaded h4, .fonts-loaded h5, .fonts-loaded h6 {
-            font-family: 'Cabin Sketch', cursive;
+        /* Estilos para la sección de tutorial de dibujo */
+        .tutorial-section {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 3px dashed #333;
         }
         
-        .fonts-loaded body {
-            font-family: 'Neucha', -apple-system, system-ui, sans-serif;
+        .tutorial-step {
+            margin-bottom: 25px;
+        }
+        
+        .tutorial-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        /* Estilos para mejoras visuales de SEO */
+        .keyword-highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .seo-section {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        /* Mejoras específicas para layout stability */
+        .reserved-space {
+            min-height: 1px;
+        }
+        
+        /* Asegurar que los botones tengan dimensiones consistentes */
+        .btn {
+            min-height: 38px;
         }
     </style>
-    
-    <!-- Fallback para navegadores sin JavaScript -->
-    <noscript>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
-    </noscript>
 </head>
-<body class="font-loading">
+<body>
     <!-- Navbar fija -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#" style="font-family: 'Cabin Sketch', cursive;">
-                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" fetchpriority="high" width="40" height="40">
+            <a class="navbar-brand" href="#" style="font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;">
+                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager">
                 Mundo Felino
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -583,6 +623,9 @@
                         <a class="nav-link" href="#galeria">Galería</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#dibujar">Dibujar Gato</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#faq">Preguntas Frecuentes</a>
                     </li>
                     <li class="nav-item">
@@ -596,13 +639,15 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section optimizada para evitar layout shifts -->
     <section id="inicio" class="hero-section text-center bg-light">
         <div class="container">
-            <h1 class="display-4 mb-4">El Mundo de los Gatos</h1>
-            <p class="lead fs-4">Descubre la fascinante vida de estos increíbles animales</p>
-            <!-- Imagen principal más grande -->
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" fetchpriority="high" width="800" height="600">
+            <h1 class="display-4 mb-4 reserved-space">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
+            <p class="lead fs-4 reserved-space">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
+            <!-- Imagen principal con dimensiones explícitas -->
+            <div class="reserved-space" style="height: 400px; max-width: 800px; margin: 0 auto;">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager">
+            </div>
             <!-- Botón de donación añadido -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                 Haz tu donación
@@ -613,50 +658,100 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Características Section -->
+    <!-- Características Section optimizada para SEO -->
     <section id="caracteristicas" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Características de los Gatos</h2>
+            <h2 class="text-center mb-5">Características de los <span class="keyword-highlight">Gatos</span></h2>
             <div class="row g-4">
                 <!-- Característica 1 - Anatomía -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
-                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="300" height="200">
+                        <div class="reserved-space" style="height: 180px;">
+                            <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" width="300" height="200" loading="lazy">
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Anatomía</h5>
-                            <p class="card-text">Los gatos tienen cuerpos flexibles y ágiles, con columna vertebral extremadamente flexible y garras retráctiles.</p>
+                            <h5 class="card-title">Anatomía del <span class="keyword-highlight">Gato</span></h5>
+                            <p class="card-text">Los <strong>gatos</strong> tienen cuerpos flexibles y ágiles, con columna vertebral extremadamente flexible y garras retráctiles que les permiten trepar y cazar con eficacia.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Característica 2 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
-                        <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="300" height="200">
+                        <div class="reserved-space" style="height: 180px;">
+                            <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" width="300" height="200" loading="lazy">
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Sentidos</h5>
-                            <p class="card-text">Poseen visión nocturna excepcional, oído muy agudo y un sentido del olfato 14 veces más sensible que el humano.</p>
+                            <h5 class="card-title">Sentidos del <span class="keyword-highlight">Gato</span></h5>
+                            <p class="card-text">Los <strong>gatos</strong> poseen visión nocturna excepcional, oído muy agudo y un sentido del olfato 14 veces más sensible que el humano, lo que los convierte en excelentes cazadores.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Característica 3 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
-                        <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" loading="lazy" width="300" height="200">
+                        <div class="reserved-space" style="height: 180px;">
+                            <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" width="300" height="200" loading="lazy">
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Comportamiento</h5>
-                            <p class="card-text">Son animales territoriales, comunicativos a través de vocalizaciones y lenguaje corporal, y muy independientes.</p>
+                            <h5 class="card-title">Comportamiento del <span class="keyword-highlight">Gato</span></h5>
+                            <p class="card-text">Los <strong>gatos</strong> son animales territoriales, comunicativos a través de vocalizaciones y lenguaje corporal, y muy independientes. Su comportamiento varía según la raza y personalidad.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Característica 4 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card performance-optimized">
-                        <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" loading="lazy" width="300" height="200">
+                        <div class="reserved-space" style="height: 180px;">
+                            <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" width="300" height="200" loading="lazy">
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Alimentación</h5>
-                            <p class="card-text">Son carnívoros estrictos que necesitan una dieta rica en proteínas animales para mantener una salud óptima.</p>
+                            <h5 class="card-title">Alimentación del <span class="keyword-highlight">Gato</span></h5>
+                            <p class="card-text">Los <strong>gatos</strong> son carnívoros estrictos que necesitan una dieta rica en proteínas animales para mantener una salud óptima. La alimentación adecuada es clave para su bienestar.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Línea divisoria -->
+    <div class="divider"></div>
+
+    <!-- Nueva sección: Cómo dibujar un gato (basado en palabras clave populares) -->
+    <section id="dibujar" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Cómo <span class="keyword-highlight">Dibujar un Gato</span> - Tutorial Paso a Paso</h2>
+            <div class="tutorial-section">
+                <p class="lead text-center mb-4">Aprende a <strong>dibujar un gato</strong> fácilmente con esta guía paso a paso. Perfecto para principiantes y amantes de los <strong>gatos</strong>.</p>
+                
+                <div class="tutorial-step">
+                    <h4><span class="tutorial-step-number">1</span> Forma básica de la cabeza</h4>
+                    <p>Comienza dibujando un círculo para la cabeza del <strong>gato</strong>. Este será la base de tu dibujo.</p>
+                </div>
+                
+                <div class="tutorial-step">
+                    <h4><span class="tutorial-step-number">2</span> Cuerpo y patas</h4>
+                    <p>Añade un óvalo para el cuerpo y líneas simples para las patas. Los <strong>gatos</strong> tienen cuerpos alargados y patas proporcionales.</p>
+                </div>
+                
+                <div class="tutorial-step">
+                    <h4><span class="tutorial-step-number">3</span> Orejas y cola</h4>
+                    <p>Dibuja dos triángulos para las orejas y una línea curva para la cola. Las orejas de los <strong>gatos</strong> son puntiagudas y móviles.</p>
+                </div>
+                
+                <div class="tutorial-step">
+                    <h4><span class="tutorial-step-number">4</span> Detalles faciales</h4>
+                    <p>Añade los ojos, nariz y boca. Los ojos de los <strong>gatos</strong> son grandes y expresivos, situados en la parte frontal de la cabeza.</p>
+                </div>
+                
+                <div class="tutorial-step">
+                    <h4><span class="tutorial-step-number">5</span> Bigotes y textura</h4>
+                    <p>Finalmente, añade los bigotes característicos y detalles de pelaje. Los <strong>gatos</strong> tienen bigotes muy sensibles que les ayudan a orientarse.</p>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <p><strong>¡Felicidades! Ahora sabes cómo dibujar un gato básico.</strong> Practica con diferentes poses y expresiones para mejorar tu técnica.</p>
                 </div>
             </div>
         </div>
@@ -668,27 +763,37 @@
     <!-- Galería Section -->
     <section id="galeria" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Galería de Gatos</h2>
+            <h2 class="text-center mb-5">Galería de <span class="keyword-highlight">Gatos</span></h2>
             <div class="gallery-container">
                 <!-- Primera imagen de la galería igual a la primera imagen de las tarjetas -->
                 <div class="gallery-slide active">
-                    <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="eager" width="800" height="600">
+                    <div class="reserved-space" style="height: 500px;">
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="eager" width="800" height="600">
+                    </div>
                     <!-- Botón de donación añadido -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                         Donar por este gato
                     </button>
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
+                    <div class="reserved-space" style="height: 500px;">
+                        <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
+                    </div>
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
+                    <div class="reserved-space" style="height: 500px;">
+                        <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
+                    </div>
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
+                    <div class="reserved-space" style="height: 500px;">
+                        <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
+                    </div>
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
+                    <div class="reserved-space" style="height: 500px;">
+                        <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
+                    </div>
                 </div>
                 
                 <button class="gallery-nav prev">‹</button>
@@ -708,10 +813,10 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Acordeón añadido debajo de la galería -->
+    <!-- Acordeón ampliado con todas las preguntas solicitadas -->
     <section id="faq" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Preguntas Frecuentes sobre Gatos</h2>
+            <h2 class="text-center mb-5">Preguntas Frecuentes sobre <span class="keyword-highlight">Gatos</span></h2>
             <div class="accordion" id="faqAccordion">
                 <!-- Pregunta 1 -->
                 <div class="accordion-item">
@@ -722,7 +827,7 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Los gatos ronronean por diversas razones, no solo cuando están contentos. También pueden ronronear cuando tienen miedo, están heridos o incluso durante el parto. Se cree que el ronroneo tiene propiedades curativas y puede ayudar a los gatos a recuperarse más rápido de lesiones.
+                            Los <strong>gatos</strong> ronronean por diversas razones, no solo cuando están contentos. También pueden ronronear cuando tienen miedo, están heridos o incluso durante el parto. Se cree que el ronroneo tiene propiedades curativas y puede ayudar a los <strong>gatos</strong> a recuperarse más rápido de lesiones.
                         </div>
                     </div>
                 </div>
@@ -735,7 +840,7 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            La esperanza de vida de un gato doméstico varía según varios factores, pero en promedio viven entre 12 y 15 años. Los gatos de interior suelen vivir más que los de exterior, y algunos gatos bien cuidados pueden llegar a los 20 años o más.
+                            La esperanza de vida de un <strong>gato</strong> doméstico varía según varios factores, pero en promedio viven entre 12 y 15 años. Los <strong>gatos</strong> de interior suelen vivir más que los de exterior, y algunos <strong>gatos</strong> bien cuidados pueden llegar a los 20 años o más. La raza, alimentación y cuidados veterinarios influyen en cuánto viven los <strong>gatos</strong>.
                         </div>
                     </div>
                 </div>
@@ -748,7 +853,7 @@
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            El amasado es un comportamiento que los gatitos realizan para estimular la producción de leche de su madre. Los gatos adultos continúan este comportamiento cuando se sienten cómodos y seguros, como cuando están a punto de dormir o cuando están recibiendo caricias. Es una señal de que están contentos y relajados.
+                            El amasado es un comportamiento que los gatitos realizan para estimular la producción de leche de su madre. Los <strong>gatos</strong> adultos continúan este comportamiento cuando se sienten cómodos y seguros, como cuando están a punto de dormir o cuando están recibiendo caricias. Es una señal de que están contentos y relajados.
                         </div>
                     </div>
                 </div>
@@ -761,7 +866,124 @@
                     </h2>
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Los gatos no ven en blanco y negro, pero su visión del color es limitada en comparación con los humanos. Pueden distinguir principalmente entre azules y verdes, pero tienen dificultad para percibir los rojos. Su visión está optimizada para la caza con poca luz, por lo que tienen más bastones (células para visión nocturna) que conos (células para visión del color).
+                            Los <strong>gatos</strong> no ven en blanco y negro, pero su visión del color es limitada en comparación con los humanos. Pueden distinguir principalmente entre azules y verdes, pero tienen dificultad para percibir los rojos. Su visión está optimizada para la caza con poca luz, por lo que tienen más bastones (células para visión nocturna) que conos (células para visión del color).
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 5 - Cuánto duermen los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            ¿Cuánto duermen los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los <strong>gatos</strong> son animales que duermen mucho, generalmente entre 12 y 16 horas al día, aunque algunos pueden dormir hasta 20 horas. Los <strong>gatos</strong> ancianos y los gatitos suelen dormir aún más. Este patrón de sueño proviene de sus ancestros salvajes, que necesitaban conservar energía para la caza.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 6 - Qué hacer cuando a un gato le pica una abeja -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            ¿Qué hacer cuando a un gato le pica una abeja?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuando a un <strong>gato</strong> le pica una abeja, es importante actuar con calma. Primero, retira cuidadosamente el aguijón si está presente (raspándolo, no apretando). Aplica una compresa fría en la zona para reducir la hinchazón. Observa al <strong>gato</strong> atentamente por si muestra signos de reacción alérgica grave (dificultad para respirar, hinchazón facial excesiva), en cuyo caso debes acudir inmediatamente al veterinario.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 7 - Cuándo abren los ojos los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            ¿Cuándo abren los ojos los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los gatitos recién nacidos nacen con los ojos cerrados y generalmente los abren entre los 7 y 14 días de vida. Inicialmente, sus ojos son de color azul grisáceo, y el color definitivo se establece alrededor de las 12 semanas. Es importante no forzar la apertura de los ojos de los gatitos, ya que esto puede causar daños.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 8 - Por qué los gatos hacen muecas cuando huelen algo -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            ¿Por qué los gatos hacen muecas cuando huelen algo?
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuando los <strong>gatos</strong> huelen algo intenso o interesante, a veces realizan un gesto llamado "respuesta de Flehmen". Este consiste en levantar el labio superior y abrir ligeramente la boca, permitiendo que los aromas lleguen al órgano vomeronasal situado en el paladar. Este comportamiento ayuda a los <strong>gatos</strong> a analizar feromonas y otros olores de manera más detallada.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 9 - Cuándo empiezan a comer solos los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            ¿Cuándo empiezan a comer solos los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los gatitos generalmente comienzan a mostrar interés por la comida sólida alrededor de las 3-4 semanas de edad. A las 6-8 semanas, la mayoría de los gatitos ya pueden comer alimentos sólidos por sí mismos, aunque el destete completo suele ocurrir entre las 8 y 10 semanas. Es importante ofrecer alimento específico para gatitos, humedecido inicialmente para facilitar la transición.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 10 - Qué hacer cuando a un gato lo pica una abeja (variación) -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            ¿Qué hacer cuando a un gato lo pica una abeja?
+                        </button>
+                    </h2>
+                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Si un <strong>gato</strong> es picado por una abeja, mantén la calma y retira el aguijón si es visible usando una tarjeta o uña para rasparlo (no uses pinzas que puedan apretar más veneno). Aplica una pasta de bicarbonato de sodio y agua o una compresa fría para aliviar el dolor y la hinchazón. Si el <strong>gato</strong> muestra signos de reacción alérgica (dificultad respiratoria, debilidad extrema), acude al veterinario inmediatamente.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 11 - Cuántas vidas tienen los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEleven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                            ¿Cuántas vidas tienen los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            La creencia de que los <strong>gatos</strong> tienen 7 vidas (o 9 en algunas culturas) es solo un mito popular. Los <strong>gatos</strong> tienen una sola vida como cualquier otro ser vivo. Esta leyenda probablemente surgió debido a su notable agilidad y capacidad para sobrevivir a caídas que serían fatales para otros animales, gracias a su reflejo de enderezamiento.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 12 - Cuándo nacen los gatos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwelve">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                            ¿Cuándo nacen los gatos?
+                        </button>
+                    </h2>
+                    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Los <strong>gatos</strong> pueden nacer en cualquier época del año, pero en climas templados suelen tener camadas en primavera y verano. El período de gestación de una gata es de aproximadamente 63-65 días. Las gatas pueden tener varias camadas al año, por lo que es importante la esterilización para controlar la población de <strong>gatos</strong> callejeros.
+                        </div>
+                    </div>
+                </div>
+                <!-- Pregunta 13 - Cómo reaccionan los gatos cuando se asustan -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThirteen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                            ¿Cómo reaccionan los gatos cuando se asustan?
+                        </button>
+                    </h2>
+                    <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Cuando los <strong>gatos</strong> se asustan, pueden mostrar diversas reacciones: arquear la espalda, erizar el pelaje para parecer más grandes, silbar, gruñir o bufar. Algunos <strong>gatos</strong> pueden huir y esconderse, mientras que otros pueden quedarse paralizados. Es importante no forzar la interacción con un <strong>gato</strong> asustado y darle espacio para que se calme.
                         </div>
                     </div>
                 </div>
@@ -775,10 +997,10 @@
     <!-- Donaciones Section -->
     <section id="donaciones" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Ayuda a los Gatos</h2>
+            <h2 class="text-center mb-5">Ayuda a los <span class="keyword-highlight">Gatos</span></h2>
             <div class="donation-form-container">
                 <div class="donation-box">
-                    <h4 class="text-center mb-4">Salva un Gato</h4>
+                    <h4 class="text-center mb-4">Salva un <span class="keyword-highlight">Gato</span></h4>
                     
                     <!-- Formulario con validaciones completas y Formspree -->
                     <form 
@@ -886,13 +1108,13 @@
             <div class="row">
                 <!-- Columna 1: Información de contacto -->
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <h5>Fundación el Mundo de los Gatos</h5>
+                    <h5>Fundación el Mundo de los <span class="keyword-highlight">Gatos</span></h5>
                     <div class="contact-info">
                         <p><i class="bi bi-geo-alt"></i> Calle Felina, 123</p>
                         <p><i class="bi bi-telephone"></i> +34 912 345 678</p>
                         <p><i class="bi bi-envelope"></i> info@mundofelino.org</p>
                     </div>
-                    <p class="mt-3">Trabajamos para mejorar la vida de los gatos mediante rescate, educación y concienciación.</p>
+                    <p class="mt-3">Trabajamos para mejorar la vida de los <strong>gatos</strong> mediante rescate, educación y concienciación.</p>
                 </div>
                 
                 <!-- Columna 2: Enlaces de navegación -->
@@ -902,6 +1124,7 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#caracteristicas">Características</a></li>
                         <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#dibujar">Dibujar Gato</a></li>
                         <li><a href="#faq">Preguntas Frecuentes</a></li>
                         <li><a href="#donaciones">Donaciones</a></li>
                     </ul>
@@ -930,12 +1153,12 @@
                         <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
                     </div>
                     
-                    <p class="mt-3">Suscríbete a nuestro boletín para recibir novedades.</p>
+                    <p class="mt-3">Suscríbete a nuestro boletín para recibir novedades sobre <strong>gatos</strong>.</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Fundación el Mundo de los Gatos. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Fundación el Mundo de los <span class="keyword-highlight">Gatos</span>. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -949,7 +1172,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body donation-modal-content">
-                    <h4 class="donation-modal-main-text">¡Ayuda a salvar la vida de un gato!</h4>
+                    <h4 class="donation-modal-main-text">¡Ayuda a salvar la vida de un <span class="keyword-highlight">gato</span>!</h4>
                     <p class="mb-3">Tu contribución nos permite:</p>
                     <ul class="mb-4">
                         <li>Proveer alimento y cuidados veterinarios</li>
@@ -978,32 +1201,18 @@
     <!-- Bootstrap JS con defer para no bloquear renderizado -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
     
-    <!-- JavaScript optimizado para evitar forced reflows -->
+    <!-- JavaScript optimizado para evitar forced reflows y layout shifts -->
     <script>
-        // Cargar estilos diferidos cuando la página esté lista
+        // Esperar a que el DOM esté completamente cargado
         document.addEventListener('DOMContentLoaded', function() {
-            // Cargar estilos diferidos
-            var loadDeferredStyles = function() {
-                var addStylesNode = document.getElementById("deferred-styles");
-                var replacement = document.createElement("div");
-                replacement.innerHTML = addStylesNode.textContent;
-                document.body.appendChild(replacement);
-                addStylesNode.parentElement.removeChild(addStylesNode);
-            };
-            var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-                webkitRequestAnimationFrame || msRequestAnimationFrame;
-            if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-            else window.addEventListener('load', loadDeferredStyles);
-            
-            // Detectar cuando las fuentes están cargadas
-            document.fonts.ready.then(function () {
-                document.body.classList.remove('font-loading');
-                document.body.classList.add('fonts-loaded');
-            });
-            
             // Variables para agrupar operaciones DOM
             let domUpdates = [];
             let isProcessing = false;
+            
+            // Detectar cuando las fuentes web están cargadas
+            document.fonts.ready.then(function() {
+                document.body.classList.add('fonts-loaded');
+            });
             
             // Función optimizada para procesar actualizaciones DOM en lote
             function processDomUpdates() {
