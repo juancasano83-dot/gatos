@@ -7,27 +7,22 @@
     <!-- Meta descripción para SEO -->
     <meta name="description" content="Descubre el fascinante mundo de los gatos en nuestra página web. Información sobre características, galería de imágenes, preguntas frecuentes y cómo ayudar mediante donaciones. Todo sobre el cuidado y bienestar felino.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     <!-- Preconexión para mejorar rendimiento -->
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
     <!-- Preload de imágenes críticas - MEJORADO -->
     <link rel="preload" href="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" as="image" fetchpriority="high">
     <link rel="preload" href="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" as="image" fetchpriority="high">
-    <!-- Nuevos preloads para imágenes críticas -->
     <link rel="preload" href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" as="image">
     <link rel="preload" href="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" as="image">
     <link rel="preload" href="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" as="image">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Sketchy Theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
-    
+    <!-- CSS crítico inline para mejorar FCP -->
     <style>
+        /* CSS crítico para renderizado inicial */
         :root {
             --bs-font-sans-serif: 'Neucha', -apple-system, system-ui, sans-serif;
             --bs-body-font-weight: 700;
@@ -41,19 +36,57 @@
             font-family: var(--bs-font-sans-serif);
             font-weight: var(--bs-body-font-weight);
             background-color: #f8f9fa;
-            padding-top: 76px; /* Para compensar la altura de la navbar fija */
+            padding-top: 76px;
+            margin: 0;
         }
         
-        /* Navbar fija */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1030;
+            background-color: #007bff;
         }
         
+        /* Optimización de fuentes con font-display swap */
+        @font-face {
+            font-family: 'Cabin Sketch';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Neucha';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+        
+        /* Placeholders para imágenes */
+        .img-placeholder {
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                        linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                        linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+    </style>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Bootstrap Sketchy Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Bootstrap Icons con font-display optimizado -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous">
+    <!-- Google Fonts con font-display optimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    
+    <!-- CSS no crítico -->
+    <style>
         .cat-img {
-            height: 400px; /* Aumentado de 200px a 400px */
+            height: 400px;
             width: 100%;
             max-width: 800px;
             object-fit: cover;
@@ -428,36 +461,21 @@
         .lazy-img {
             opacity: 0;
             transition: opacity 0.3s;
-            background-color: #f0f0f0;
         }
         
         .lazy-img.loaded {
             opacity: 1;
         }
         
-        /* Placeholder para imágenes mientras cargan */
-        .img-placeholder {
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        /* Estilos para imágenes de baja calidad como placeholder */
-        .lqip {
-            filter: blur(10px);
-            transition: filter 0.3s ease;
-        }
-        
-        .lqip.loaded {
-            filter: blur(0);
-        }
-
         /* Estilos para la sección Hero mejorada */
         .hero-section {
             padding: 80px 0;
+        }
+        
+        /* Optimizaciones de rendimiento */
+        .performance-optimized {
+            will-change: transform;
+            backface-visibility: hidden;
         }
     </style>
 </head>
@@ -466,7 +484,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#" style="font-family: 'Cabin Sketch', cursive;">
-                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" fetchpriority="high">
+                <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=40&h=40&fit=crop&crop=center" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" fetchpriority="high" width="40" height="40">
                 Mundo Felino
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -503,7 +521,7 @@
             <h1 class="display-4 mb-4">El Mundo de los Gatos</h1>
             <p class="lead fs-4">Descubre la fascinante vida de estos increíbles animales</p>
             <!-- Imagen principal más grande -->
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" fetchpriority="high">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&h=600&fit=crop&crop=center" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" fetchpriority="high" width="800" height="600">
             <!-- Botón de donación añadido -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                 Haz tu donación
@@ -521,8 +539,8 @@
             <div class="row g-4">
                 <!-- Característica 1 - Anatomía -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card">
-                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" loading="lazy">
+                    <div class="card h-100 text-center feature-card performance-optimized">
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="300" height="200">
                         <div class="card-body">
                             <h5 class="card-title">Anatomía</h5>
                             <p class="card-text">Los gatos tienen cuerpos flexibles y ágiles, con columna vertebral extremadamente flexible y garras retráctiles.</p>
@@ -531,8 +549,8 @@
                 </div>
                 <!-- Característica 2 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card">
-                        <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" loading="lazy">
+                    <div class="card h-100 text-center feature-card performance-optimized">
+                        <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="300" height="200">
                         <div class="card-body">
                             <h5 class="card-title">Sentidos</h5>
                             <p class="card-text">Poseen visión nocturna excepcional, oído muy agudo y un sentido del olfato 14 veces más sensible que el humano.</p>
@@ -541,8 +559,8 @@
                 </div>
                 <!-- Característica 3 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card">
-                        <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" loading="lazy">
+                    <div class="card h-100 text-center feature-card performance-optimized">
+                        <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" loading="lazy" width="300" height="200">
                         <div class="card-body">
                             <h5 class="card-title">Comportamiento</h5>
                             <p class="card-text">Son animales territoriales, comunicativos a través de vocalizaciones y lenguaje corporal, y muy independientes.</p>
@@ -551,8 +569,8 @@
                 </div>
                 <!-- Característica 4 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card">
-                        <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" loading="lazy">
+                    <div class="card h-100 text-center feature-card performance-optimized">
+                        <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=300&h=200&fit=crop&crop=center" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" loading="lazy" width="300" height="200">
                         <div class="card-body">
                             <h5 class="card-title">Alimentación</h5>
                             <p class="card-text">Son carnívoros estrictos que necesitan una dieta rica en proteínas animales para mantener una salud óptima.</p>
@@ -573,25 +591,24 @@
             <div class="gallery-container">
                 <!-- Primera imagen de la galería igual a la primera imagen de las tarjetas -->
                 <div class="gallery-slide active">
-                    <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="eager">
+                    <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="eager" width="800" height="600">
                     <!-- Botón de donación añadido -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                         Donar por este gato
                     </button>
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1536590158209-e9d615d525e4?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
                 </div>
                 <div class="gallery-slide">
-                    <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&h=600&fit=crop&crop=center" class="img-fluid gallery-img lazy-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
                 </div>
-                <!-- Se eliminó la sexta imagen -->
                 
                 <button class="gallery-nav prev">‹</button>
                 <button class="gallery-nav next">›</button>
@@ -602,7 +619,6 @@
                     <div class="gallery-indicator" data-slide="2"></div>
                     <div class="gallery-indicator" data-slide="3"></div>
                     <div class="gallery-indicator" data-slide="4"></div>
-                    <!-- Se eliminó el indicador de la sexta imagen -->
                 </div>
             </div>
         </div>
@@ -878,274 +894,279 @@
     <!-- Botón de scroll al acordeón -->
     <button class="scroll-to-section" id="scrollToSection" title="Ir a preguntas frecuentes">?</button>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS con defer para no bloquear renderizado -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+    
+    <!-- JavaScript optimizado para evitar forced reflows -->
     <script>
-        // Galería interactiva
+        // Esperar a que el DOM esté completamente cargado
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.gallery-slide');
-            const indicators = document.querySelectorAll('.gallery-indicator');
-            const prevBtn = document.querySelector('.gallery-nav.prev');
-            const nextBtn = document.querySelector('.gallery-nav.next');
-            let currentSlide = 0;
+            // Variables para agrupar operaciones DOM
+            let domUpdates = [];
+            let isProcessing = false;
             
-            function showSlide(index) {
-                // Ocultar todas las slides
-                slides.forEach(slide => slide.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
+            // Función optimizada para procesar actualizaciones DOM en lote
+            function processDomUpdates() {
+                if (isProcessing) return;
+                isProcessing = true;
                 
-                // Mostrar la slide actual
-                slides[index].classList.add('active');
-                indicators[index].classList.add('active');
-                currentSlide = index;
+                // Usar requestAnimationFrame para agrupar operaciones
+                requestAnimationFrame(() => {
+                    // Procesar todas las actualizaciones pendientes
+                    while (domUpdates.length) {
+                        const update = domUpdates.shift();
+                        if (typeof update === 'function') {
+                            update();
+                        }
+                    }
+                    isProcessing = false;
+                });
             }
             
-            // Navegación con flechas
-            prevBtn.addEventListener('click', function() {
-                let newIndex = currentSlide - 1;
-                if (newIndex < 0) newIndex = slides.length - 1;
-                showSlide(newIndex);
-            });
-            
-            nextBtn.addEventListener('click', function() {
-                let newIndex = currentSlide + 1;
-                if (newIndex >= slides.length) newIndex = 0;
-                showSlide(newIndex);
-            });
-            
-            // Navegación con indicadores
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
-                    showSlide(index);
-                });
-            });
-            
-            // Cambio automático cada 5 segundos
-            setInterval(function() {
-                let newIndex = currentSlide + 1;
-                if (newIndex >= slides.length) newIndex = 0;
-                showSlide(newIndex);
-            }, 5000);
-            
-            // Validación del formulario
-            const form = document.getElementById('donationForm');
-            const customAmount = document.getElementById('customAmount');
-            const radioButtons = document.querySelectorAll('input[name="donationAmount"]');
-            const formspreeSuccess = document.getElementById('formspreeSuccess');
-            
-            // Si se introduce una cantidad personalizada, desmarcar los radio buttons
-            customAmount.addEventListener('input', function() {
-                if (this.value) {
-                    radioButtons.forEach(radio => {
-                        radio.checked = false;
-                        radio.required = false;
+            // Galería interactiva optimizada
+            function initializeGallery() {
+                const slides = document.querySelectorAll('.gallery-slide');
+                const indicators = document.querySelectorAll('.gallery-indicator');
+                const prevBtn = document.querySelector('.gallery-nav.prev');
+                const nextBtn = document.querySelector('.gallery-nav.next');
+                let currentSlide = 0;
+                
+                function showSlide(index) {
+                    // Agrupar operaciones DOM
+                    domUpdates.push(() => {
+                        slides.forEach(slide => slide.classList.remove('active'));
+                        indicators.forEach(indicator => indicator.classList.remove('active'));
+                        
+                        slides[index].classList.add('active');
+                        indicators[index].classList.add('active');
+                        currentSlide = index;
                     });
-                } else {
-                    radioButtons[0].required = true;
+                    processDomUpdates();
                 }
-            });
+                
+                // Navegación con flechas
+                prevBtn.addEventListener('click', function() {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1;
+                    showSlide(newIndex);
+                });
+                
+                nextBtn.addEventListener('click', function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                });
+                
+                // Navegación con indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', function() {
+                        showSlide(index);
+                    });
+                });
+                
+                // Cambio automático cada 5 segundos
+                setInterval(function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                }, 5000);
+            }
             
-            // Si se selecciona un radio button, limpiar la cantidad personalizada
-            radioButtons.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.checked) {
-                        customAmount.value = '';
+            // Validación del formulario optimizada
+            function initializeForm() {
+                const form = document.getElementById('donationForm');
+                const customAmount = document.getElementById('customAmount');
+                const radioButtons = document.querySelectorAll('input[name="donationAmount"]');
+                const formspreeSuccess = document.getElementById('formspreeSuccess');
+                
+                // Si se introduce una cantidad personalizada, desmarcar los radio buttons
+                customAmount.addEventListener('input', function() {
+                    if (this.value) {
+                        radioButtons.forEach(radio => {
+                            radio.checked = false;
+                            radio.required = false;
+                        });
+                    } else {
+                        radioButtons[0].required = true;
                     }
                 });
-            });
-            
-            // Validación al enviar el formulario
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
                 
-                // Verificar si se ha seleccionado al menos una opción de donación
-                const hasRadioSelected = Array.from(radioButtons).some(radio => radio.checked);
-                const hasCustomAmount = customAmount.value && customAmount.value > 0;
-                
-                if (!hasRadioSelected && !hasCustomAmount) {
-                    // Marcar el primer radio como inválido
-                    radioButtons[0].setCustomValidity('Debes seleccionar una cantidad o introducir una personalizada');
-                } else {
-                    radioButtons[0].setCustomValidity('');
-                }
-                
-                // Validación estándar de Bootstrap
-                if (form.checkValidity()) {
-                    // Si el formulario es válido, enviar a Formspree
-                    const formData = new FormData(form);
-                    
-                    fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
+                // Si se selecciona un radio button, limpiar la cantidad personalizada
+                radioButtons.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        if (this.checked) {
+                            customAmount.value = '';
                         }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            // Mostrar mensaje de éxito
-                            form.style.display = 'none';
-                            formspreeSuccess.style.display = 'block';
-                            form.reset();
-                            form.classList.remove('was-validated');
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    alert(data["errors"].map(error => error["message"]).join(", "));
-                                } else {
-                                    alert("Oops! Hubo un problema al enviar el formulario");
-                                }
-                            });
-                        }
-                    })
-                    .catch(error => {
-                        alert("Oops! Hubo un problema al enviar el formulario");
                     });
-                } else {
-                    // Si el formulario no es válido, mostrar errores
-                    form.classList.add('was-validated');
-                }
-            }, false);
-            
-            // Botón Donar en el modal - cierra el modal y hace scroll al formulario
-            const modalDonateButton = document.getElementById('modalDonateButton');
-            modalDonateButton.addEventListener('click', function() {
-                // Cerrar el modal
-                const modalElement = document.getElementById('donationModal');
-                const modal = bootstrap.Modal.getInstance(modalElement);
-                modal.hide();
+                });
                 
-                // Hacer scroll al formulario después de que el modal se cierre
-                setTimeout(function() {
-                    const targetElement = document.getElementById('donaciones');
+                // Validación al enviar el formulario
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    // Verificar si se ha seleccionado al menos una opción de donación
+                    const hasRadioSelected = Array.from(radioButtons).some(radio => radio.checked);
+                    const hasCustomAmount = customAmount.value && customAmount.value > 0;
+                    
+                    if (!hasRadioSelected && !hasCustomAmount) {
+                        radioButtons[0].setCustomValidity('Debes seleccionar una cantidad o introducir una personalizada');
+                    } else {
+                        radioButtons[0].setCustomValidity('');
+                    }
+                    
+                    // Validación estándar de Bootstrap
+                    if (form.checkValidity()) {
+                        const formData = new FormData(form);
+                        
+                        fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                domUpdates.push(() => {
+                                    form.style.display = 'none';
+                                    formspreeSuccess.style.display = 'block';
+                                    form.reset();
+                                    form.classList.remove('was-validated');
+                                });
+                                processDomUpdates();
+                            } else {
+                                response.json().then(data => {
+                                    if (Object.hasOwn(data, 'errors')) {
+                                        alert(data["errors"].map(error => error["message"]).join(", "));
+                                    } else {
+                                        alert("Oops! Hubo un problema al enviar el formulario");
+                                    }
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            alert("Oops! Hubo un problema al enviar el formulario");
+                        });
+                    } else {
+                        form.classList.add('was-validated');
+                    }
+                });
+            }
+            
+            // Botón Donar en el modal optimizado
+            function initializeModal() {
+                const modalDonateButton = document.getElementById('modalDonateButton');
+                modalDonateButton.addEventListener('click', function() {
+                    const modalElement = document.getElementById('donationModal');
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    modal.hide();
+                    
+                    setTimeout(function() {
+                        const targetElement = document.getElementById('donaciones');
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight - 50;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                });
+            }
+            
+            // Scroll optimizado
+            function initializeScroll() {
+                const scrollToSection = document.getElementById('scrollToSection');
+                
+                window.addEventListener('scroll', function() {
+                    domUpdates.push(() => {
+                        if (window.scrollY > 500) {
+                            scrollToSection.style.display = 'block';
+                        } else {
+                            scrollToSection.style.display = 'none';
+                        }
+                    });
+                    processDomUpdates();
+                });
+                
+                scrollToSection.addEventListener('click', function() {
+                    const targetElement = document.getElementById('faq');
                     const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - navbarHeight - 50; // Restamos 80px extra
+                    const targetPosition = targetElement.offsetTop - navbarHeight - 80;
                     
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
-                }, 300);
-            });
-            
-            // Botón de scroll al acordeón
-            const scrollToSection = document.getElementById('scrollToSection');
-            
-            // Mostrar/ocultar botón de scroll al acordeón
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 500) {
-                    scrollToSection.style.display = 'block';
-                } else {
-                    scrollToSection.style.display = 'none';
-                }
-            });
-            
-            // Funcionalidad del botón de scroll al acordeón
-            scrollToSection.addEventListener('click', function() {
-                const targetElement = document.getElementById('faq');
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight - 80; // Restamos 80px extra
+                });
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Scroll automático al acordeón cuando se hace clic en una pregunta
-            const accordionButtons = document.querySelectorAll('.accordion-button');
-            accordionButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Esperar un momento para que el acordeón se abra
-                    setTimeout(() => {
-                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                        const targetPosition = this.offsetTop - navbarHeight - 80; // Restamos 80px extra
+                // Smooth scroll para los enlaces de navegación
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
                         
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }, 100);
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - navbarHeight - 80;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
                 });
-            });
+            }
             
-            // Smooth scroll para los enlaces de navegación
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
+            // Lazy loading optimizado para imágenes
+            function initializeLazyLoading() {
+                const lazyImages = document.querySelectorAll('.lazy-img');
+                
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                domUpdates.push(() => {
+                                    img.classList.add('loaded');
+                                });
+                                processDomUpdates();
+                                imageObserver.unobserve(img);
+                            }
+                        });
+                    }, {
+                        rootMargin: '50px 0px',
+                        threshold: 0.1
+                    });
                     
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        // Calcular la posición considerando la navbar fija y restando 80px
-                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                        const targetPosition = targetElement.offsetTop - navbarHeight - 80;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Lazy loading para imágenes - MEJORADO
-            const lazyImages = document.querySelectorAll('.lazy-img');
-            
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.classList.add('loaded');
-                            imageObserver.unobserve(img);
-                        }
+                    lazyImages.forEach(img => imageObserver.observe(img));
+                } else {
+                    lazyImages.forEach(img => {
+                        img.classList.add('loaded');
                     });
-                }, {
-                    rootMargin: '50px 0px', // Cargar imágenes 50px antes de que entren en la vista
-                    threshold: 0.1
-                });
-                
-                lazyImages.forEach(img => imageObserver.observe(img));
-            } else {
-                // Fallback para navegadores que no soportan IntersectionObserver
-                lazyImages.forEach(img => {
-                    img.classList.add('loaded');
-                });
+                }
             }
             
-            // Precarga de imágenes para la galería cuando estén cerca de ser visibles
-            const galleryImages = document.querySelectorAll('.gallery-slide:not(.active) img');
-            if ('IntersectionObserver' in window) {
-                const galleryObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            // Forzar la carga de la imagen
-                            img.src = img.src;
-                            galleryObserver.unobserve(img);
-                        }
-                    });
-                }, {
-                    rootMargin: '200px 0px', // Precargar imágenes 200px antes de que entren en la vista
-                    threshold: 0
-                });
-                
-                galleryImages.forEach(img => galleryObserver.observe(img));
-            }
+            // Inicializar todos los componentes
+            initializeGallery();
+            initializeForm();
+            initializeModal();
+            initializeScroll();
+            initializeLazyLoading();
         });
     </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) con defer -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1JLES0QP7"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-K1JLES0QP7');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K1JLES0QP7');
     </script>
 </body>
 </html>
