@@ -42,6 +42,12 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
+    <!-- Preload de la imagen LCP crítica -->
+    <link rel="preload" href="images/gato1.avif" as="image" fetchpriority="high">
+    
+    <!-- Preload de fuentes críticas con font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
     <!-- CSS crítico inline para mejorar FCP y evitar layout shifts -->
     <style>
         /* CSS crítico para renderizado inicial */
@@ -69,6 +75,7 @@
             size-adjust: 98%;
         }
         
+        /* Aplicar fuentes de respaldo inmediatamente */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Cabin Sketch Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-weight: 700;
@@ -153,10 +160,35 @@
         .fonts-loaded body {
             font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
         }
+        
+        /* Espacio reservado para evitar CLS */
+        .reserved-space {
+            min-height: 1px;
+            display: block;
+        }
+        
+        .title-reserved-space {
+            min-height: 120px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .title-reserved-space {
+                min-height: 90px;
+            }
+        }
+        
+        .lead-reserved-space {
+            min-height: 60px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .lead-reserved-space {
+                min-height: 40px;
+            }
+        }
     </style>
-    
-    <!-- Preload de fuentes críticas con font-display: swap -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- CSS no crítico cargado de forma asíncrona -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
@@ -642,11 +674,15 @@
     <!-- Hero Section optimizada para evitar layout shifts -->
     <section id="inicio" class="hero-section text-center bg-light">
         <div class="container">
-            <h1 class="display-4 mb-4 reserved-space">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
-            <p class="lead fs-4 reserved-space">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
-            <!-- Imagen principal con dimensiones explícitas -->
+            <div class="title-reserved-space">
+                <h1 class="display-4 mb-4">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
+            </div>
+            <div class="lead-reserved-space">
+                <p class="lead fs-4">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
+            </div>
+            <!-- Imagen principal con dimensiones explícitas y optimizada para LCP -->
             <div class="reserved-space" style="height: 400px; max-width: 800px; margin: 0 auto;">
-                <img src="images/gato1.avif" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager">
+                <img src="images/gato1.avif" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager" fetchpriority="high">
             </div>
             <!-- Botón de donación añadido -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
@@ -768,7 +804,7 @@
                 <!-- Primera imagen de la galería igual a la primera imagen de las tarjetas -->
                 <div class="gallery-slide active">
                     <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gato2.avif" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="eager" width="800" height="600">
+                        <img src="images/gato2.avif" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="800" height="600">
                     </div>
                     <!-- Botón de donación añadido -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
@@ -1363,7 +1399,7 @@
                 });
             }
             
-            // Botón Donar en el modal optimizado
+            // Botón Donar en el modal optimizada
             function initializeModal() {
                 const modalDonateButton = document.getElementById('modalDonateButton');
                 modalDonateButton.addEventListener('click', function() {
@@ -1470,6 +1506,8 @@
     </script>
 
     <!-- Google tag (gtag.js) con defer -->
+    <script async src="https://www.googletag
+            <!-- Google tag (gtag.js) con defer -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1JLES0QP7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
