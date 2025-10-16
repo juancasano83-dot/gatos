@@ -7,7 +7,6 @@
     <!-- Meta descripción optimizada para SEO -->
     <meta name="description" content="Descubre todo sobre los gatos: características, cuidados, comportamiento, alimentación y curiosidades. Aprende a dibujar un gato, conoce cuánto viven y sus sentidos especiales. Información completa sobre el mundo felino.">
     <meta name="keywords" content="gato, gatos, cuidados gatos, comportamiento gatos, dibujar gato, cuanto viven los gatos, alimentación gatos, curiosidades gatos, mundo felino">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
     <!-- Schema.org markup para SEO -->
     <script type="application/ld+json">
@@ -37,57 +36,19 @@
     }
     </script>
     
-    <!-- Preconexión para mejorar rendimiento -->
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
     
-    <!-- Preload de la imagen LCP crítica -->
-    <link rel="preload" href="images/gato1.avif" as="image" fetchpriority="high">
-    
-    <!-- Preload de fuentes críticas con font-display: swap -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <!-- CSS crítico inline para mejorar FCP y evitar layout shifts -->
+    <!-- Estilos personalizados -->
     <style>
-        /* CSS crítico para renderizado inicial */
-        :root {
-            --bs-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --bs-body-font-weight: 400;
-        }
-        
-        /* Definición de fuentes locales de respaldo para evitar FOIT/FOUT */
-        @font-face {
-            font-family: 'Cabin Sketch Fallback';
-            src: local('Arial');
-            ascent-override: 95%;
-            descent-override: 22%;
-            line-gap-override: 0%;
-            size-adjust: 105%;
-        }
-        
-        @font-face {
-            font-family: 'Neucha Fallback';
-            src: local('Georgia');
-            ascent-override: 105%;
-            descent-override: 35%;
-            line-gap-override: 0%;
-            size-adjust: 98%;
-        }
-        
-        /* Aplicar fuentes de respaldo inmediatamente */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cabin Sketch Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-weight: 700;
-        }
-        
         body {
-            font-family: 'Neucha Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-weight: var(--bs-body-font-weight);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             padding-top: 76px;
-            margin: 0;
             line-height: 1.6;
+            color: #333;
         }
         
         .navbar {
@@ -98,16 +59,16 @@
             background-color: #007bff;
         }
         
-        /* Estilos para reservar espacio y evitar layout shifts */
         .hero-section {
             min-height: 60vh;
             display: flex;
             align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
         
         .cat-img, .feature-card-img, .gallery-img {
             aspect-ratio: 4/3;
-            background-color: #f0f0f0;
+            object-fit: cover;
             display: block;
         }
         
@@ -127,87 +88,10 @@
             width: 100%;
         }
         
-        /* Placeholders para imágenes */
-        .img-placeholder {
-            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
-                        linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
-                        linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
-                        linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-        }
-        
-        /* Estilos base para elementos que podrían causar layout shifts */
-        .display-4 {
-            font-size: calc(1.475rem + 2.7vw);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        
-        @media (min-width: 1200px) {
-            .display-4 {
-                font-size: 3.5rem;
-            }
-        }
-        
-        /* Clase para cuando las fuentes web estén cargadas */
-        .fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3, 
-        .fonts-loaded h4, .fonts-loaded h5, .fonts-loaded h6 {
-            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
-        }
-        
-        .fonts-loaded body {
-            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
-        }
-        
-        /* Espacio reservado para evitar CLS */
-        .reserved-space {
-            min-height: 1px;
-            display: block;
-        }
-        
-        .title-reserved-space {
-            min-height: 120px;
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .title-reserved-space {
-                min-height: 90px;
-            }
-        }
-        
-        .lead-reserved-space {
-            min-height: 60px;
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .lead-reserved-space {
-                min-height: 40px;
-            }
-        }
-    </style>
-    
-    <!-- CSS no crítico cargado de forma asíncrona -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" media="print" onload="this.media='all'">
-    
-    <!-- CSS adicional que se carga después del renderizado inicial -->
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
-    </noscript>
-    
-    <!-- CSS no crítico -->
-    <style>
         .feature-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
+            color: #007bff;
         }
         
         .fact-card {
@@ -292,7 +176,6 @@
         
         /* Estilos para el acordeón */
         .accordion-button {
-            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
             font-weight: 700;
             cursor: pointer;
         }
@@ -300,10 +183,6 @@
         .accordion-button:not(.collapsed) {
             background-color: #f8f9fa;
             color: #333;
-        }
-        
-        .accordion-body {
-            font-family: 'Neucha', 'Neucha Fallback', -apple-system, sans-serif;
         }
         
         /* Estilos para el botón de donación en la galería */
@@ -324,16 +203,11 @@
             text-align: center;
         }
         
-        .modal-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        
         /* Estilos para las tarjetas con imágenes */
         .feature-card {
             height: 100%;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #e9ecef;
         }
         
         .feature-card:hover {
@@ -482,7 +356,6 @@
         }
         
         .footer-section h5 {
-            font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;
             margin-bottom: 20px;
             color: #f8f9fa;
             border-bottom: 2px dashed #ecf0f1;
@@ -559,25 +432,9 @@
             color: #155724;
         }
         
-        /* Estilos para imágenes lazy loading - MEJORADO */
-        .lazy-img {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .lazy-img.loaded {
-            opacity: 1;
-        }
-        
         /* Estilos para la sección Hero mejorada */
         .hero-section {
             padding: 80px 0;
-        }
-        
-        /* Optimizaciones de rendimiento */
-        .performance-optimized {
-            will-change: transform;
-            backface-visibility: hidden;
         }
         
         /* Estilos para la sección de tutorial de dibujo */
@@ -612,23 +469,30 @@
             padding: 2px 5px;
             border-radius: 3px;
             font-weight: bold;
-        }
-        
-        .seo-section {
-            background-color: #e9ecef;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        /* Mejoras específicas para layout stability */
-        .reserved-space {
-            min-height: 1px;
+            color: #333;
         }
         
         /* Asegurar que los botones tengan dimensiones consistentes */
         .btn {
             min-height: 38px;
+        }
+        
+        /* Corregir visibilidad del texto */
+        .card-text, .accordion-body, p, li {
+            color: #333 !important;
+        }
+        
+        strong {
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .card-title {
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
         }
     </style>
 </head>
@@ -636,7 +500,7 @@
     <!-- Navbar fija -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#" style="font-family: 'Cabin Sketch', 'Cabin Sketch Fallback', -apple-system, sans-serif;">
+            <a class="navbar-brand" href="#">
                 <img src="images/gato1.avif" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager">
                 Mundo Felino
             </a>
@@ -671,18 +535,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section optimizada para evitar layout shifts -->
+    <!-- Hero Section -->
     <section id="inicio" class="hero-section text-center bg-light">
         <div class="container">
-            <div class="title-reserved-space">
-                <h1 class="display-4 mb-4">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
-            </div>
-            <div class="lead-reserved-space">
-                <p class="lead fs-4">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
-            </div>
-            <!-- Imagen principal con dimensiones explícitas y optimizada para LCP -->
-            <div class="reserved-space" style="height: 400px; max-width: 800px; margin: 0 auto;">
-                <img src="images/gato1.avif" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager" fetchpriority="high">
+            <h1 class="display-4 mb-4">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
+            <p class="lead fs-4">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
+            <!-- Imagen principal -->
+            <div style="height: 400px; max-width: 800px; margin: 0 auto;">
+                <img src="images/gato1.avif" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager">
             </div>
             <!-- Botón de donación añadido -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
@@ -694,16 +554,16 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Características Section optimizada para SEO -->
+    <!-- Características Section -->
     <section id="caracteristicas" class="py-5">
         <div class="container">
             <h2 class="text-center mb-5">Características de los <span class="keyword-highlight">Gatos</span></h2>
             <div class="row g-4">
                 <!-- Característica 1 - Anatomía -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card performance-optimized">
-                        <div class="reserved-space" style="height: 180px;">
-                            <img src="images/gato2.avif" class="card-img-top feature-card-img lazy-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" width="300" height="200" loading="lazy">
+                    <div class="card h-100 text-center feature-card">
+                        <div style="height: 180px;">
+                            <img src="images/gato2.avif" class="card-img-top feature-card-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Anatomía del <span class="keyword-highlight">Gato</span></h5>
@@ -713,9 +573,9 @@
                 </div>
                 <!-- Característica 2 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card performance-optimized">
-                        <div class="reserved-space" style="height: 180px;">
-                            <img src="images/gato3.avif" class="card-img-top feature-card-img lazy-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" width="300" height="200" loading="lazy">
+                    <div class="card h-100 text-center feature-card">
+                        <div style="height: 180px;">
+                            <img src="images/gato3.avif" class="card-img-top feature-card-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Sentidos del <span class="keyword-highlight">Gato</span></h5>
@@ -725,9 +585,9 @@
                 </div>
                 <!-- Característica 3 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card performance-optimized">
-                        <div class="reserved-space" style="height: 180px;">
-                            <img src="images/gato4.avif" class="card-img-top feature-card-img lazy-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" width="300" height="200" loading="lazy">
+                    <div class="card h-100 text-center feature-card">
+                        <div style="height: 180px;">
+                            <img src="images/gato4.avif" class="card-img-top feature-card-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Comportamiento del <span class="keyword-highlight">Gato</span></h5>
@@ -737,9 +597,9 @@
                 </div>
                 <!-- Característica 4 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center feature-card performance-optimized">
-                        <div class="reserved-space" style="height: 180px;">
-                            <img src="images/gato5.avif" class="card-img-top feature-card-img lazy-img" alt="Alimentación del gato - Gato comiendo de un plato" width="300" height="200" loading="lazy">
+                    <div class="card h-100 text-center feature-card">
+                        <div style="height: 180px;">
+                            <img src="images/gato5.avif" class="card-img-top feature-card-img" alt="Alimentación del gato - Gato comiendo de un plato" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Alimentación del <span class="keyword-highlight">Gato</span></h5>
@@ -754,7 +614,7 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Nueva sección: Cómo dibujar un gato (basado en palabras clave populares) -->
+    <!-- Nueva sección: Cómo dibujar un gato -->
     <section id="dibujar" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5">Cómo <span class="keyword-highlight">Dibujar un Gato</span> - Tutorial Paso a Paso</h2>
@@ -801,10 +661,10 @@
         <div class="container">
             <h2 class="text-center mb-5">Galería de <span class="keyword-highlight">Gatos</span></h2>
             <div class="gallery-container">
-                <!-- Primera imagen de la galería igual a la primera imagen de las tarjetas -->
+                <!-- Primera imagen de la galería -->
                 <div class="gallery-slide active">
-                    <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gato2.avif" class="img-fluid gallery-img lazy-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="800" height="600">
+                    <div style="height: 500px;">
+                        <img src="images/gato2.avif" class="img-fluid gallery-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="800" height="600">
                     </div>
                     <!-- Botón de donación añadido -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
@@ -812,23 +672,23 @@
                     </button>
                 </div>
                 <div class="gallery-slide">
-                    <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gato3.avif" class="img-fluid gallery-img lazy-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
+                    <div style="height: 500px;">
+                        <img src="images/gato3.avif" class="img-fluid gallery-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 <div class="gallery-slide">
-                    <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gato4.avif" class="img-fluid gallery-img lazy-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
+                    <div style="height: 500px;">
+                        <img src="images/gato4.avif" class="img-fluid gallery-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 <div class="gallery-slide">
-                    <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gato6.avif" class="img-fluid gallery-img lazy-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
+                    <div style="height: 500px;">
+                        <img src="images/gato6.avif" class="img-fluid gallery-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 <div class="gallery-slide">
-                    <div class="reserved-space" style="height: 500px;">
-                        <img src="images/gato5.avif" class="img-fluid gallery-img lazy-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
+                    <div style="height: 500px;">
+                        <img src="images/gato5.avif" class="img-fluid gallery-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 
@@ -1199,7 +1059,7 @@
         </div>
     </footer>
 
-    <!-- Modal de Donación actualizado según la captura -->
+    <!-- Modal de Donación -->
     <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1234,41 +1094,15 @@
     <!-- Botón de scroll al acordeón -->
     <button class="scroll-to-section" id="scrollToSection" title="Ir a preguntas frecuentes">?</button>
 
-    <!-- Bootstrap JS con defer para no bloquear renderizado -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- JavaScript optimizado para evitar forced reflows y layout shifts -->
+    <!-- JavaScript personalizado -->
     <script>
         // Esperar a que el DOM esté completamente cargado
         document.addEventListener('DOMContentLoaded', function() {
-            // Variables para agrupar operaciones DOM
-            let domUpdates = [];
-            let isProcessing = false;
             
-            // Detectar cuando las fuentes web están cargadas
-            document.fonts.ready.then(function() {
-                document.body.classList.add('fonts-loaded');
-            });
-            
-            // Función optimizada para procesar actualizaciones DOM en lote
-            function processDomUpdates() {
-                if (isProcessing) return;
-                isProcessing = true;
-                
-                // Usar requestAnimationFrame para agrupar operaciones
-                requestAnimationFrame(() => {
-                    // Procesar todas las actualizaciones pendientes
-                    while (domUpdates.length) {
-                        const update = domUpdates.shift();
-                        if (typeof update === 'function') {
-                            update();
-                        }
-                    }
-                    isProcessing = false;
-                });
-            }
-            
-            // Galería interactiva optimizada
+            // Galería interactiva
             function initializeGallery() {
                 const slides = document.querySelectorAll('.gallery-slide');
                 const indicators = document.querySelectorAll('.gallery-indicator');
@@ -1277,16 +1111,12 @@
                 let currentSlide = 0;
                 
                 function showSlide(index) {
-                    // Agrupar operaciones DOM
-                    domUpdates.push(() => {
-                        slides.forEach(slide => slide.classList.remove('active'));
-                        indicators.forEach(indicator => indicator.classList.remove('active'));
-                        
-                        slides[index].classList.add('active');
-                        indicators[index].classList.add('active');
-                        currentSlide = index;
-                    });
-                    processDomUpdates();
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    indicators.forEach(indicator => indicator.classList.remove('active'));
+                    
+                    slides[index].classList.add('active');
+                    indicators[index].classList.add('active');
+                    currentSlide = index;
                 }
                 
                 // Navegación con flechas
@@ -1317,7 +1147,7 @@
                 }, 5000);
             }
             
-            // Validación del formulario optimizada
+            // Validación del formulario
             function initializeForm() {
                 const form = document.getElementById('donationForm');
                 const customAmount = document.getElementById('customAmount');
@@ -1373,13 +1203,10 @@
                         })
                         .then(response => {
                             if (response.ok) {
-                                domUpdates.push(() => {
-                                    form.style.display = 'none';
-                                    formspreeSuccess.style.display = 'block';
-                                    form.reset();
-                                    form.classList.remove('was-validated');
-                                });
-                                processDomUpdates();
+                                form.style.display = 'none';
+                                formspreeSuccess.style.display = 'block';
+                                form.reset();
+                                form.classList.remove('was-validated');
                             } else {
                                 response.json().then(data => {
                                     if (Object.hasOwn(data, 'errors')) {
@@ -1399,7 +1226,7 @@
                 });
             }
             
-            // Botón Donar en el modal optimizada
+            // Botón Donar en el modal
             function initializeModal() {
                 const modalDonateButton = document.getElementById('modalDonateButton');
                 modalDonateButton.addEventListener('click', function() {
@@ -1425,14 +1252,11 @@
                 const scrollToSection = document.getElementById('scrollToSection');
                 
                 window.addEventListener('scroll', function() {
-                    domUpdates.push(() => {
-                        if (window.scrollY > 500) {
-                            scrollToSection.style.display = 'block';
-                        } else {
-                            scrollToSection.style.display = 'none';
-                        }
-                    });
-                    processDomUpdates();
+                    if (window.scrollY > 500) {
+                        scrollToSection.style.display = 'block';
+                    } else {
+                        scrollToSection.style.display = 'none';
+                    }
                 });
                 
                 scrollToSection.addEventListener('click', function() {
@@ -1467,53 +1291,12 @@
                 });
             }
             
-            // Lazy loading optimizado para imágenes
-            function initializeLazyLoading() {
-                const lazyImages = document.querySelectorAll('.lazy-img');
-                
-                if ('IntersectionObserver' in window) {
-                    const imageObserver = new IntersectionObserver((entries, observer) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const img = entry.target;
-                                domUpdates.push(() => {
-                                    img.classList.add('loaded');
-                                });
-                                processDomUpdates();
-                                imageObserver.unobserve(img);
-                            }
-                        });
-                    }, {
-                        rootMargin: '50px 0px',
-                        threshold: 0.1
-                    });
-                    
-                    lazyImages.forEach(img => imageObserver.observe(img));
-                } else {
-                    lazyImages.forEach(img => {
-                        img.classList.add('loaded');
-                    });
-                }
-            }
-            
             // Inicializar todos los componentes
             initializeGallery();
             initializeForm();
             initializeModal();
             initializeScroll();
-            initializeLazyLoading();
         });
-    </script>
-
-    <!-- Google tag (gtag.js) con defer -->
-    <script async src="https://www.googletag
-            <!-- Google tag (gtag.js) con defer -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1JLES0QP7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-K1JLES0QP7');
     </script>
 </body>
 </html>
