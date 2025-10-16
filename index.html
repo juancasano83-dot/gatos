@@ -346,6 +346,79 @@
         .social-icons a:hover {
             color: #007bff;
         }
+        
+        /* NUEVO: Estilos para la sección de palabras clave */
+        .keywords-section {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 3px dashed #333;
+        }
+        
+        .keyword-category {
+            margin-bottom: 30px;
+        }
+        
+        .keyword-category h4 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .keyword-tag {
+            display: inline-block;
+            background-color: #e9ecef;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #dee2e6;
+        }
+        
+        .keyword-tag:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .keyword-tag.high-volume {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .keyword-tag.medium-volume {
+            background-color: #fff3cd;
+            border-color: #ffeaa7;
+        }
+        
+        .keyword-tag.low-volume {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .volume-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .volume-high {
+            background-color: #28a745;
+        }
+        
+        .volume-medium {
+            background-color: #ffc107;
+        }
+        
+        .volume-low {
+            background-color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -372,6 +445,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#dibujar">Dibujar Gato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#palabras-clave">Palabras Clave</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#faq">Preguntas Frecuentes</a>
@@ -500,6 +576,155 @@
                 
                 <div class="text-center mt-4">
                     <p><strong>¡Felicidades! Ahora sabes cómo dibujar un gato básico.</strong> Practica con diferentes poses y expresiones para mejorar tu técnica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Línea divisoria -->
+    <div class="divider"></div>
+
+    <!-- NUEVA SECCIÓN: Palabras clave relacionadas con gatos -->
+    <section id="palabras-clave" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Palabras clave relacionadas con <span class="keyword-highlight">Gatos</span></h2>
+            <div class="keywords-section">
+                <p class="lead text-center mb-4">Explora las palabras clave más populares relacionadas con el mundo felino. Estas etiquetas te ayudarán a encontrar información específica sobre diferentes aspectos de los gatos.</p>
+                
+                <div class="row">
+                    <!-- Categoría 1: Razas y tipos de gatos -->
+                    <div class="col-md-6 keyword-category">
+                        <h4><i class="bi bi-tags me-2"></i>Razas y tipos de gatos</h4>
+                        <div class="keyword-tag high-volume">
+                            <span class="volume-indicator volume-high"></span>razas de gatos
+                        </div>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>gatos egipcios
+                        </div>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>gatos sin pelo
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos persas
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos siameses
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos maine coon
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos británicos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos callejeros
+                        </div>
+                    </div>
+                    
+                    <!-- Categoría 2: Cuidados y accesorios -->
+                    <div class="col-md-6 keyword-category">
+                        <h4><i class="bi bi-heart me-2"></i>Cuidados y accesorios</h4>
+                        <div class="keyword-tag high-volume">
+                            <span class="volume-indicator volume-high"></span>arenero para gatos
+                        </div>
+                        <div class="keyword-tag high-volume">
+                            <span class="volume-indicator volume-high"></span>rascadores para gatos
+                        </div>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>natural greatness gatos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>comida para gatos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>juguetes para gatos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>cama para gatos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>transportín para gatos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>vacunas para gatos
+                        </div>
+                    </div>
+                    
+                    <!-- Categoría 3: Nombres y características -->
+                    <div class="col-md-6 keyword-category">
+                        <h4><i class="bi bi-card-text me-2"></i>Nombres y características</h4>
+                        <div class="keyword-tag high-volume">
+                            <span class="volume-indicator volume-high"></span>nombres para gatos
+                        </div>
+                        <div class="keyword-tag high-volume">
+                            <span class="volume-indicator volume-high"></span>nombres de gatos
+                        </div>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>gatos graciosos
+                        </div>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>gatos bebes
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos adultos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos ancianos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos juguetones
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos cariñosos
+                        </div>
+                    </div>
+                    
+                    <!-- Categoría 4: Salud y comportamiento -->
+                    <div class="col-md-6 keyword-category">
+                        <h4><i class="bi bi-heart-pulse me-2"></i>Salud y comportamiento</h4>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>enfermedades de gatos
+                        </div>
+                        <div class="keyword-tag medium-volume">
+                            <span class="volume-indicator volume-medium"></span>vacunas para gatos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos estresados
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos agresivos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos asustadizos
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos que no comen
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos con sobrepeso
+                        </div>
+                        <div class="keyword-tag low-volume">
+                            <span class="volume-indicator volume-low"></span>gatos esterilizados
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-3 bg-light rounded">
+                    <h5 class="mb-3">Leyenda de volumen de búsqueda:</h5>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="d-flex align-items-center">
+                            <span class="volume-indicator volume-high me-2"></span>
+                            <span>Alto volumen (>10,000 búsquedas/mes)</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="volume-indicator volume-medium me-2"></span>
+                            <span>Volumen medio (>1,000 búsquedas/mes)</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="volume-indicator volume-low me-2"></span>
+                            <span>Bajo volumen (<1,000 búsquedas/mes)</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -864,6 +1089,7 @@
                         <li><a href="#caracteristicas" class="text-decoration-none">Características</a></li>
                         <li><a href="#galeria" class="text-decoration-none">Galería</a></li>
                         <li><a href="#dibujar" class="text-decoration-none">Dibujar Gato</a></li>
+                        <li><a href="#palabras-clave" class="text-decoration-none">Palabras Clave</a></li>
                         <li><a href="#faq" class="text-decoration-none">Preguntas Frecuentes</a></li>
                         <li><a href="#donaciones" class="text-decoration-none">Donaciones</a></li>
                     </ul>
