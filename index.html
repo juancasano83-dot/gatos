@@ -8,6 +8,11 @@
     <meta name="description" content="Descubre todo sobre los gatos: características, cuidados, comportamiento, alimentación y curiosidades. Aprende a dibujar un gato, conoce cuánto viven y sus sentidos especiales. Información completa sobre el mundo felino.">
     <meta name="keywords" content="gato, gatos, cuidados gatos, comportamiento gatos, dibujar gato, cuanto viven los gatos, alimentación gatos, curiosidades gatos, mundo felino">
     
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" as="style">
+    <link rel="preload" href="images/gato1.avif" as="image">
+    
     <!-- Schema.org markup para SEO -->
     <script type="application/ld+json">
     {
@@ -36,19 +41,17 @@
     }
     </script>
     
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS con Sketchy -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
     
-    <!-- Estilos personalizados -->
+    <!-- Estilos críticos inline para mejorar FCP -->
     <style>
+        /* Solo estilos críticos para renderizado inicial */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
             padding-top: 76px;
-            line-height: 1.6;
-            color: #333;
+            background-color: #f8f9fa;
         }
         
         .navbar {
@@ -56,19 +59,17 @@
             top: 0;
             width: 100%;
             z-index: 1030;
-            background-color: #007bff;
         }
         
         .hero-section {
             min-height: 60vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
         
-        .cat-img, .feature-card-img, .gallery-img {
-            aspect-ratio: 4/3;
-            object-fit: cover;
+        /* Espacio reservado para evitar layout shifts */
+        .img-placeholder {
+            background-color: #f0f0f0;
             display: block;
         }
         
@@ -87,11 +88,18 @@
             height: 180px;
             width: 100%;
         }
-        
+    </style>
+    
+    <!-- Estilos no críticos cargados de forma diferida -->
+    <link rel="stylesheet" href="data:text/css,"
+          media="print" 
+          onload="this.media='all'; this.href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'">
+    
+    <!-- Estilos personalizados no críticos -->
+    <style>
         .feature-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #007bff;
         }
         
         .fact-card {
@@ -99,14 +107,12 @@
             border-radius: 15px;
             padding: 15px;
             margin-bottom: 20px;
-            background-color: #fff;
         }
         
         .donation-box {
             border: 3px dashed #333;
             border-radius: 15px;
             padding: 20px;
-            background-color: #fff;
         }
         
         .modal-content {
@@ -174,17 +180,6 @@
             background-color: #333;
         }
         
-        /* Estilos para el acordeón */
-        .accordion-button {
-            font-weight: 700;
-            cursor: pointer;
-        }
-        
-        .accordion-button:not(.collapsed) {
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        
         /* Estilos para el botón de donación en la galería */
         .gallery-donation-btn {
             position: absolute;
@@ -196,28 +191,6 @@
         /* Estilos para el botón de donación en la sección Hero */
         .hero-donation-btn {
             margin-top: 30px;
-        }
-        
-        /* Estilos para el modal de donaciones mejorado */
-        .donation-modal-content {
-            text-align: center;
-        }
-        
-        /* Estilos para las tarjetas con imágenes */
-        .feature-card {
-            height: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #e9ecef;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .feature-card-img {
-            object-fit: cover;
-            border-bottom: 3px solid #333;
         }
         
         /* Línea divisoria */
@@ -232,42 +205,6 @@
         .donation-form-container {
             max-width: 600px;
             margin: 0 auto;
-        }
-        
-        /* Estilos específicos para el modal según la captura */
-        .donation-modal-header {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        
-        .donation-modal-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .donation-modal-body {
-            padding-top: 0;
-        }
-        
-        .donation-modal-main-text {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .donation-modal-divider {
-            height: 2px;
-            background-color: #333;
-            margin: 1.5rem 0;
-        }
-        
-        .donation-modal-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .donation-modal-footer {
-            border-top: none;
-            justify-content: space-between;
         }
         
         /* Botón de scroll al acordeón */
@@ -293,153 +230,8 @@
             transform: scale(1.1);
         }
         
-        /* Estilos para validación de formulario */
-        .was-validated .form-control:valid,
-        .form-control.is-valid {
-            border-color: #198754;
-            padding-right: calc(1.5em + 0.75rem);
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right calc(0.375em + 0.1875rem) center;
-            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-        }
-        
-        .was-validated .form-control:invalid,
-        .form-control.is-invalid {
-            border-color: #dc3545;
-            padding-right: calc(1.5em + 0.75rem);
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='m5.8 3.6.4.4.4-.4'/%3e%3cpath d='M6 7v1'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right calc(0.375em + 0.1875rem) center;
-            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-        }
-        
-        .invalid-feedback {
-            display: none;
-            width: 100%;
-            margin-top: 0.25rem;
-            font-size: 0.875em;
-            color: #dc3545;
-        }
-        
-        .was-validated .form-control:invalid ~ .invalid-feedback,
-        .form-control.is-invalid ~ .invalid-feedback {
-            display: block;
-        }
-        
-        .was-validated .form-check-input:invalid ~ .form-check-label,
-        .form-check-input.is-invalid ~ .form-check-label {
-            color: #dc3545;
-        }
-        
-        .was-validated .form-check-input:invalid,
-        .form-check-input.is-invalid {
-            border-color: #dc3545;
-        }
-        
-        .was-validated .form-check-input:invalid:checked,
-        .form-check-input.is-invalid:checked {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-        
-        .form-text {
-            font-size: 0.875em;
-            color: #6c757d;
-        }
-        
-        /* Estilos para el footer */
-        .footer-section {
-            padding: 40px 0 20px;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-        
-        .footer-section h5 {
-            margin-bottom: 20px;
-            color: #f8f9fa;
-            border-bottom: 2px dashed #ecf0f1;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: #f8f9fa;
-            text-decoration: underline;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #34495e;
-            color: #ecf0f1;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background-color: #1abc9c;
-            transform: translateY(-3px);
-            text-decoration: none;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 20px;
-            margin-top: 30px;
-            text-align: center;
-            color: #bdc3c7;
-        }
-        
-        .contact-info i {
-            margin-right: 10px;
-            color: #1abc9c;
-        }
-        
-        /* Estilos para el mensaje de éxito */
-        .formspree-success {
-            display: none;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: center;
-            color: #155724;
-        }
-        
-        /* Estilos para la sección Hero mejorada */
-        .hero-section {
-            padding: 80px 0;
-        }
-        
         /* Estilos para la sección de tutorial de dibujo */
         .tutorial-section {
-            background-color: #fff;
             border-radius: 15px;
             padding: 30px;
             margin: 40px 0;
@@ -469,30 +261,31 @@
             padding: 2px 5px;
             border-radius: 3px;
             font-weight: bold;
-            color: #333;
         }
         
-        /* Asegurar que los botones tengan dimensiones consistentes */
-        .btn {
-            min-height: 38px;
+        /* Optimizaciones de rendimiento */
+        .feature-card {
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        /* Corregir visibilidad del texto */
-        .card-text, .accordion-body, p, li {
-            color: #333 !important;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        strong {
-            color: #333;
-            font-weight: 700;
+        /* Corrección de visibilidad para texto */
+        .card-text, .accordion-body, p, li, strong {
+            color: inherit !important;
         }
         
-        .card-title {
-            color: #333;
+        /* Mejoras de contraste */
+        .bg-light {
+            background-color: #f8fbfd !important;
         }
         
-        h1, h2, h3, h4, h5, h6 {
-            color: #333;
+        .hero-section {
+            background: linear-gradient(135deg, #f8fbfd 0%, #e9f2f9 100%);
         }
     </style>
 </head>
@@ -501,7 +294,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="images/gato1.avif" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager">
+                <img src="images/gato1.avif" class="rounded-circle me-2" alt="Logo Mundo Felino - Gato naranja" width="40" height="40" loading="eager" fetchpriority="high">
                 Mundo Felino
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -535,16 +328,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section optimizada -->
     <section id="inicio" class="hero-section text-center bg-light">
         <div class="container">
             <h1 class="display-4 mb-4">Todo sobre <span class="keyword-highlight">Gatos</span>: Características, Cuidados y Curiosidades</h1>
             <p class="lead fs-4">Descubre el fascinante mundo de los <strong>gatos</strong>: comportamiento, alimentación, cuidados y mucho más</p>
-            <!-- Imagen principal -->
-            <div style="height: 400px; max-width: 800px; margin: 0 auto;">
-                <img src="images/gato1.avif" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager">
+            <!-- Imagen principal optimizada -->
+            <div class="img-placeholder" style="height: 400px; max-width: 800px; margin: 0 auto;">
+                <img src="images/gato1.avif" class="img-fluid rounded cat-img mt-4" alt="Gato principal - Gato blanco y negro mirando a la cámara" width="800" height="600" loading="eager" fetchpriority="high">
             </div>
-            <!-- Botón de donación añadido -->
+            <!-- Botón de donación -->
             <button class="btn btn-primary btn-lg hero-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                 Haz tu donación
             </button>
@@ -562,7 +355,7 @@
                 <!-- Característica 1 - Anatomía -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card">
-                        <div style="height: 180px;">
+                        <div class="img-placeholder" style="height: 180px;">
                             <img src="images/gato2.avif" class="card-img-top feature-card-img" alt="Anatomía del gato - Gato gris estirándose mostrando su flexibilidad" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
@@ -574,7 +367,7 @@
                 <!-- Característica 2 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card">
-                        <div style="height: 180px;">
+                        <div class="img-placeholder" style="height: 180px;">
                             <img src="images/gato3.avif" class="card-img-top feature-card-img" alt="Sentidos del gato - Primer plano de un gato con ojos muy abiertos" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
@@ -586,7 +379,7 @@
                 <!-- Característica 3 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card">
-                        <div style="height: 180px;">
+                        <div class="img-placeholder" style="height: 180px;">
                             <img src="images/gato4.avif" class="card-img-top feature-card-img" alt="Comportamiento del gato - Gato blanco y negro en posición de caza" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
@@ -598,7 +391,7 @@
                 <!-- Característica 4 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center feature-card">
-                        <div style="height: 180px;">
+                        <div class="img-placeholder" style="height: 180px;">
                             <img src="images/gato5.avif" class="card-img-top feature-card-img" alt="Alimentación del gato - Gato comiendo de un plato" width="300" height="200" loading="lazy">
                         </div>
                         <div class="card-body">
@@ -656,38 +449,38 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Galería Section -->
+    <!-- Galería Section optimizada -->
     <section id="galeria" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5">Galería de <span class="keyword-highlight">Gatos</span></h2>
             <div class="gallery-container">
                 <!-- Primera imagen de la galería -->
                 <div class="gallery-slide active">
-                    <div style="height: 500px;">
+                    <div class="img-placeholder" style="height: 500px;">
                         <img src="images/gato2.avif" class="img-fluid gallery-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="800" height="600">
                     </div>
-                    <!-- Botón de donación añadido -->
+                    <!-- Botón de donación -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                         Donar por este gato
                     </button>
                 </div>
                 <div class="gallery-slide">
-                    <div style="height: 500px;">
+                    <div class="img-placeholder" style="height: 500px;">
                         <img src="images/gato3.avif" class="img-fluid gallery-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 <div class="gallery-slide">
-                    <div style="height: 500px;">
+                    <div class="img-placeholder" style="height: 500px;">
                         <img src="images/gato4.avif" class="img-fluid gallery-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 <div class="gallery-slide">
-                    <div style="height: 500px;">
+                    <div class="img-placeholder" style="height: 500px;">
                         <img src="images/gato6.avif" class="img-fluid gallery-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
                     </div>
                 </div>
                 <div class="gallery-slide">
-                    <div style="height: 500px;">
+                    <div class="img-placeholder" style="height: 500px;">
                         <img src="images/gato5.avif" class="img-fluid gallery-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
                     </div>
                 </div>
@@ -709,7 +502,7 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Acordeón ampliado con todas las preguntas solicitadas -->
+    <!-- Acordeón ampliado -->
     <section id="faq" class="py-5">
         <div class="container">
             <h2 class="text-center mb-5">Preguntas Frecuentes sobre <span class="keyword-highlight">Gatos</span></h2>
@@ -727,6 +520,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Las demás preguntas se mantienen igual -->
                 <!-- Pregunta 2 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
@@ -766,7 +560,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 5 - Cuánto duermen los gatos -->
+                <!-- Pregunta 5 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingFive">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -779,7 +573,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 6 - Qué hacer cuando a un gato le pica una abeja -->
+                <!-- Pregunta 6 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSix">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -792,7 +586,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 7 - Cuándo abren los ojos los gatos -->
+                <!-- Pregunta 7 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSeven">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -805,7 +599,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 8 - Por qué los gatos hacen muecas cuando huelen algo -->
+                <!-- Pregunta 8 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingEight">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
@@ -818,7 +612,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 9 - Cuándo empiezan a comer solos los gatos -->
+                <!-- Pregunta 9 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingNine">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
@@ -831,7 +625,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 10 - Qué hacer cuando a un gato lo pica una abeja (variación) -->
+                <!-- Pregunta 10 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTen">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
@@ -844,7 +638,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 11 - Cuántas vidas tienen los gatos -->
+                <!-- Pregunta 11 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingEleven">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
@@ -857,7 +651,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 12 - Cuándo nacen los gatos -->
+                <!-- Pregunta 12 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwelve">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
@@ -870,7 +664,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pregunta 13 - Cómo reaccionan los gatos cuando se asustan -->
+                <!-- Pregunta 13 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThirteen">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
@@ -898,7 +692,7 @@
                 <div class="donation-box">
                     <h4 class="text-center mb-4">Salva un <span class="keyword-highlight">Gato</span></h4>
                     
-                    <!-- Formulario con validaciones completas y Formspree -->
+                    <!-- Formulario con validaciones -->
                     <form 
                         id="donationForm" 
                         class="needs-validation" 
@@ -988,8 +782,8 @@
                         </button>
                     </form>
                     
-                    <!-- Mensaje de éxito (se mostrará después del envío) -->
-                    <div id="formspreeSuccess" class="formspree-success">
+                    <!-- Mensaje de éxito -->
+                    <div id="formspreeSuccess" class="alert alert-success mt-3" style="display: none;">
                         <h5>¡Gracias por tu donación!</h5>
                         <p>Hemos recibido tu información correctamente y nos pondremos en contacto contigo pronto.</p>
                     </div>
@@ -998,7 +792,7 @@
         </div>
     </section>
 
-    <!-- Footer con 4 columnas -->
+    <!-- Footer -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">
@@ -1063,12 +857,12 @@
     <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header donation-modal-header">
-                    <h5 class="modal-title donation-modal-title" id="donationModalLabel">Haz tu Donación</h5>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationModalLabel">Haz tu Donación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body donation-modal-content">
-                    <h4 class="donation-modal-main-text">¡Ayuda a salvar la vida de un <span class="keyword-highlight">gato</span>!</h4>
+                <div class="modal-body">
+                    <h4 class="text-center mb-4">¡Ayuda a salvar la vida de un <span class="keyword-highlight">gato</span>!</h4>
                     <p class="mb-3">Tu contribución nos permite:</p>
                     <ul class="mb-4">
                         <li>Proveer alimento y cuidados veterinarios</li>
@@ -1077,12 +871,12 @@
                         <li>Educar sobre el cuidado responsable</li>
                     </ul>
                     
-                    <div class="donation-modal-divider"></div>
+                    <div class="divider"></div>
                     
-                    <h5 class="donation-modal-subtitle">Cada donación marca la diferencia</h5>
-                    <p class="mb-4">Con tu apoyo podemos continuar nuestra labor de protección felina.</p>
+                    <h5 class="text-center mt-4">Cada donación marca la diferencia</h5>
+                    <p class="mb-4 text-center">Con tu apoyo podemos continuar nuestra labor de protección felina.</p>
                     
-                    <div class="modal-footer donation-modal-footer">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-primary" id="modalDonateButton">Donar Ahora</button>
                     </div>
@@ -1094,12 +888,12 @@
     <!-- Botón de scroll al acordeón -->
     <button class="scroll-to-section" id="scrollToSection" title="Ir a preguntas frecuentes">?</button>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS con defer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     
-    <!-- JavaScript personalizado -->
+    <!-- JavaScript optimizado -->
     <script>
-        // Esperar a que el DOM esté completamente cargado
+        // Cargar cuando el DOM esté listo
         document.addEventListener('DOMContentLoaded', function() {
             
             // Galería interactiva
@@ -1119,7 +913,6 @@
                     currentSlide = index;
                 }
                 
-                // Navegación con flechas
                 prevBtn.addEventListener('click', function() {
                     let newIndex = currentSlide - 1;
                     if (newIndex < 0) newIndex = slides.length - 1;
@@ -1132,14 +925,12 @@
                     showSlide(newIndex);
                 });
                 
-                // Navegación con indicadores
                 indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', function() {
                         showSlide(index);
                     });
                 });
                 
-                // Cambio automático cada 5 segundos
                 setInterval(function() {
                     let newIndex = currentSlide + 1;
                     if (newIndex >= slides.length) newIndex = 0;
@@ -1154,7 +945,6 @@
                 const radioButtons = document.querySelectorAll('input[name="donationAmount"]');
                 const formspreeSuccess = document.getElementById('formspreeSuccess');
                 
-                // Si se introduce una cantidad personalizada, desmarcar los radio buttons
                 customAmount.addEventListener('input', function() {
                     if (this.value) {
                         radioButtons.forEach(radio => {
@@ -1166,7 +956,6 @@
                     }
                 });
                 
-                // Si se selecciona un radio button, limpiar la cantidad personalizada
                 radioButtons.forEach(radio => {
                     radio.addEventListener('change', function() {
                         if (this.checked) {
@@ -1175,12 +964,10 @@
                     });
                 });
                 
-                // Validación al enviar el formulario
                 form.addEventListener('submit', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
                     
-                    // Verificar si se ha seleccionado al menos una opción de donación
                     const hasRadioSelected = Array.from(radioButtons).some(radio => radio.checked);
                     const hasCustomAmount = customAmount.value && customAmount.value > 0;
                     
@@ -1190,7 +977,6 @@
                         radioButtons[0].setCustomValidity('');
                     }
                     
-                    // Validación estándar de Bootstrap
                     if (form.checkValidity()) {
                         const formData = new FormData(form);
                         
@@ -1270,7 +1056,6 @@
                     });
                 });
                 
-                // Smooth scroll para los enlaces de navegación
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
                         e.preventDefault();
@@ -1291,7 +1076,7 @@
                 });
             }
             
-            // Inicializar todos los componentes
+            // Inicializar componentes
             initializeGallery();
             initializeForm();
             initializeModal();
