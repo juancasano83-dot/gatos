@@ -67,7 +67,32 @@
             align-items: center;
         }
         
-        /* Espacio reservado para evitar layout shifts */
+        /* CORRECCIÓN: Galería con tamaño fijo */
+        .gallery-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 500px; /* Altura fija para el contenedor */
+            overflow: hidden; /* Evitar que las imágenes se salgan */
+        }
+        
+        .gallery-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .gallery-slide.active {
+            display: block;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantener proporciones y cubrir el espacio */
+            display: block;
+        }
+        
         .img-placeholder {
             background-color: #f0f0f0;
             display: block;
@@ -77,16 +102,13 @@
             height: 400px;
             max-width: 800px;
             width: 100%;
-        }
-        
-        .gallery-img {
-            height: 500px;
-            width: 100%;
+            object-fit: cover;
         }
         
         .feature-card-img {
             height: 180px;
             width: 100%;
+            object-fit: cover;
         }
     </style>
     
@@ -120,21 +142,7 @@
             border-radius: 15px;
         }
         
-        /* Estilos para la galería interactiva */
-        .gallery-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .gallery-slide {
-            display: none;
-        }
-        
-        .gallery-slide.active {
-            display: block;
-        }
-        
+        /* Estilos para la galería interactiva - CORREGIDOS */
         .gallery-nav {
             position: absolute;
             top: 50%;
@@ -449,52 +457,43 @@
     <!-- Línea divisoria -->
     <div class="divider"></div>
 
-    <!-- Galería Section optimizada -->
+    <!-- Galería Section CORREGIDA -->
     <section id="galeria" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5">Galería de <span class="keyword-highlight">Gatos</span></h2>
             <div class="gallery-container">
-                <!-- Primera imagen de la galería -->
+                <!-- Primera imagen de la galería - CORREGIDO -->
                 <div class="gallery-slide active">
-                    <div class="img-placeholder" style="height: 500px;">
-                        <img src="images/gato2.avif" class="img-fluid gallery-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="lazy" width="800" height="600">
-                    </div>
+                    <img src="images/gato2.avif" class="gallery-img" alt="Gato 1 - Gato gris estirándose mostrando su flexibilidad" loading="lazy">
                     <!-- Botón de donación -->
                     <button class="btn btn-primary gallery-donation-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                         Donar por este gato
                     </button>
                 </div>
                 <div class="gallery-slide">
-                    <div class="img-placeholder" style="height: 500px;">
-                        <img src="images/gato3.avif" class="img-fluid gallery-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy" width="800" height="600">
-                    </div>
+                    <img src="images/gato3.avif" class="gallery-img" alt="Gato 2 - Primer plano de un gato con ojos muy abiertos" loading="lazy">
                 </div>
                 <div class="gallery-slide">
-                    <div class="img-placeholder" style="height: 500px;">
-                        <img src="images/gato4.avif" class="img-fluid gallery-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy" width="800" height="600">
-                    </div>
+                    <img src="images/gato4.avif" class="gallery-img" alt="Gato 3 - Gato blanco y negro en posición de caza" loading="lazy">
                 </div>
                 <div class="gallery-slide">
-                    <div class="img-placeholder" style="height: 500px;">
-                        <img src="images/gato6.avif" class="img-fluid gallery-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy" width="800" height="600">
-                    </div>
+                    <img src="images/gato6.avif" class="gallery-img" alt="Gato 4 - Gato naranja con expresión curiosa" loading="lazy">
                 </div>
                 <div class="gallery-slide">
-                    <div class="img-placeholder" style="height: 500px;">
-                        <img src="images/gato5.avif" class="img-fluid gallery-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy" width="800" height="600">
-                    </div>
+                    <img src="images/gato5.avif" class="gallery-img" alt="Gato 5 - Gato comiendo de un plato" loading="lazy">
                 </div>
                 
                 <button class="gallery-nav prev">‹</button>
                 <button class="gallery-nav next">›</button>
-                
-                <div class="gallery-indicators">
-                    <div class="gallery-indicator active" data-slide="0"></div>
-                    <div class="gallery-indicator" data-slide="1"></div>
-                    <div class="gallery-indicator" data-slide="2"></div>
-                    <div class="gallery-indicator" data-slide="3"></div>
-                    <div class="gallery-indicator" data-slide="4"></div>
-                </div>
+            </div>
+            
+            <!-- Indicadores de la galería -->
+            <div class="gallery-indicators">
+                <div class="gallery-indicator active" data-slide="0"></div>
+                <div class="gallery-indicator" data-slide="1"></div>
+                <div class="gallery-indicator" data-slide="2"></div>
+                <div class="gallery-indicator" data-slide="3"></div>
+                <div class="gallery-indicator" data-slide="4"></div>
             </div>
         </div>
     </section>
@@ -896,7 +895,7 @@
         // Cargar cuando el DOM esté listo
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Galería interactiva
+            // Galería interactiva CORREGIDA
             function initializeGallery() {
                 const slides = document.querySelectorAll('.gallery-slide');
                 const indicators = document.querySelectorAll('.gallery-indicator');
